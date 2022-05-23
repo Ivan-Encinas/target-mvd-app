@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable no-unused-vars */
+import { Switch, BrowserRouter } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+
+import RouteFromPath from './components/routes/RouteFromPath';
+import useTranslation from './hooks/useTranslation';
+import useAuth from './hooks/useAuth';
+import routes from './routes';
+
+import './styles/variables.css';
 
 function App() {
+  const t = useTranslation();
+  const { authenticated } = useAuth();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Helmet>
+        <title>{t('global.pageTitle')}</title>
+      </Helmet>
+      <BrowserRouter>
+        <Switch>
+          {routes.map(route => (
+            <RouteFromPath key={`route-${route.path}`} {...route} authenticated={authenticated} />
+          ))}
+        </Switch>
+      </BrowserRouter>
+    </>
   );
 }
 

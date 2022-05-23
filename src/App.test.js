@@ -1,8 +1,11 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+/*import HomePage from 'pages/HomePage';
+import { render, screen } from './setupTests';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
+test('renders welcome message', () => {
+  render(<HomePage />);
+  const linkElement = screen.getByText(/Welcome to React Redux Base/i);
   expect(linkElement).toBeInTheDocument();
 });
+*/
