@@ -1,10 +1,15 @@
 {
   "global": {
-    "pageTitle": "RS React Redux Base"
+    "pageTitle": "Target MVD APP"
+  },
+  "home": {
+    "welcomeMsg": "Welcome to Target MVD APP",
+    "logoAltMsg": "React logo",
+    "logoutBtn": "Logout"
   },
   "signup": {
     "title": "Sign up",
-    "alreadyHaveAccount": "Already have an account? Log in",
+    "alreadyHaveAccount": "SIGN IN",
     "labels": {
       "email": "EMAIL",
       "password": "PASSWORD",
@@ -17,8 +22,12 @@
     }
   },
   "login": {
-    "title": "SIGN IN",
-    "dontHaveAccountMsg": "Don't have an account? Sign up",
+    "title": "TARGET MVD",
+    "subTitle": "Find people near you & Connect",
+    "explanation": "Create a  target  wherever on the map, specify your interest: Travel, Dating, Music, etc and start conecting with others who share your interest.",
+    "dontHaveAccountMsg": "SIGN UP",
+    "forgot": "Forgot your password?",
+    "faceBook": "CONNECT WITH FACEBOOK",
     "labels": {
       "email": "EMAIL",
       "password": "PASSWORD"
@@ -26,6 +35,9 @@
     "errors": {
       "emailMsg": "Must provide an email",
       "passwordMsg": "Must provide a password"
+    },
+    "button": {
+      "signin": "Sign in"
     }
   }
 }

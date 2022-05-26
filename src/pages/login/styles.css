@@ -14,8 +14,6 @@
 .right-column {
   background-color: var(--color-light-blue);
   height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 .circles {
   width: 133px;
@@ -36,14 +34,19 @@
   height: 625px;
   border: 0px;
 }
+.title {
+  text-align: center;
+  font-size: 20px;
+  margin: 16px auto 13px;
+}
+.subTitle {
+  text-align: center;
+  margin: 0px;
+  font-size: 18px;
+}
 .explanation {
   font-size: 14px;
   line-height: 26px;
-}
-
-.forgot {
-  font-size: 11px;
-  line-height: 13px;
   text-align: center;
 }
 
@@ -81,4 +84,39 @@
   margin: 1rem 290px auto;
   display: block;
   width: 77px;
+}
+
+.forgot {
+  margin-top: 0.5rem;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+  color: var(--color-black);
+  text-decoration: none;
+}
+
+.facebook {
+  margin-top: 3.5rem;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 14px;
+  text-align: center;
+  letter-spacing: 2.4px;
+  color: var(--color-black);
+  text-decoration: none;
+}
+
+.signup {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+  color: var(--color-black);
+  text-decoration: none;
+}
+
+hr {
+  margin: 1rem;
+  width: 7.5rem;
 }

@@ -12,10 +12,11 @@ import useTranslation from '../../hooks/useTranslation';
 import useAuth from '../../hooks/useAuth';
 import { api } from '../../services/api';
 import { useSignupMutation } from '../../services/auth/auth';
-import { PASSWORD_REGEX } from '../../constants/constants';
+import { GENDER_OPTIONS, PASSWORD_REGEX } from '../../constants/constants';
 
 import '../../styles/form.css';
 import './styles.css';
+import Select from '../../components/form/select/select';
 
 const Signup = () => {
   const t = useTranslation();
@@ -24,8 +25,8 @@ const Signup = () => {
   const { user, authenticated } = useAuth();
   const [signup, { isLoading, isSuccess, error }] = useSignupMutation();
   const genderList = [
-    { value: 'female', name: 'female' },
-    { value: 'male', name: 'male' },
+    { value: 'female', name: 'FEMALE' },
+    { value: 'male', name: 'MALE' },
   ];
   const schema = z
     .object({
@@ -64,7 +65,7 @@ const Signup = () => {
       <div className="form column left-column">
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
           <h1>{t('signup.title')}</h1>
-          <label htmlFor="username">NAME</label>
+          <label htmlFor="username">Name</label>
           <Input
             register={register}
             type="text"
@@ -84,6 +85,7 @@ const Signup = () => {
           <label htmlFor="password">{t('signup.labels.password')}</label>
           <Input
             register={register}
+            placeholder="MIN 6 CHAR. LONG"
             type="password"
             name="password"
             error={errors.password}
@@ -95,23 +97,29 @@ const Signup = () => {
             register={register}
             type="password"
             name="passwordConfirmation"
-            placeholder="MIN. 6 CHARACTERS LONG"
             error={errors.passwordConfirmation}
             handleFocus={handleFocus}
           />
-          <label htmlFor="gender">Gender</label>
-          <Input
-            register={register}
+          <label htmlFor="gender">GENDER</label>
+          <Select
             name="gender"
+            options={[...GENDER_OPTIONS]}
+            register={register}
+            placeholder="SELECT YOUR GENDER"
             error={errors.gender}
-            handleFocus={handleFocus}
-            dataSource={genderList}
           />
+
+          {error && error.data && (
+            <p className="error-message">{error.data.errors?.full_messages[0]}</p>
+          )}
           <div className="button-container">
             <Button type="submit" disabled={isLoading}>
               {t('signup.title')}
             </Button>
-            <Link to={routesPaths.login}>{t('signup.alreadyHaveAccount')}</Link>
+            <hr />
+            <Link to={routesPaths.login} className="signup">
+              {t('signup.alreadyHaveAccount')}
+            </Link>
           </div>
         </form>
       </div>
