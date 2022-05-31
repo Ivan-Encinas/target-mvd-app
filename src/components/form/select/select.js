@@ -1,7 +1,8 @@
 import { string, func } from 'prop-types';
 import cn from 'classnames';
+import { v4 as uuid } from 'uuid';
 
-import './styles.css';
+import './styles.scss';
 
 const Select = ({ register, options, name, error, placeholder, ...rest }) => (
   <div className="select">
@@ -9,8 +10,8 @@ const Select = ({ register, options, name, error, placeholder, ...rest }) => (
       <option value="" disabled selected className="placeholder">
         {placeholder}
       </option>
-      {options.map((value, i) => (
-        <option key={i} value={value}>
+      {options.map(value => (
+        <option key={uuid()} value={value}>
           {value}
         </option>
       ))}

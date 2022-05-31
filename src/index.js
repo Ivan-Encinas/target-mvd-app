@@ -10,7 +10,7 @@ import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from './constants/constants';
 import store from '../src/state/store';
 import App from './App';
 import locales from './locales';
-import './index.css';
+import './index.scss';
 
 // Internationalization setup
 const usersLocale = navigator.language.split('-')[0];

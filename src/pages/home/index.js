@@ -1,10 +1,9 @@
 import useTranslation from '../../hooks/useTranslation';
 import { useLogoutMutation } from '../../services/auth/auth';
+import Button from '../../components/common/button';
 
 import logo from '../../logo.svg';
-import './styles.css';
-// eslint-disable-next-line no-unused-vars
-import Button from '../../components/common/button';
+import './styles.scss';
 
 const Home = () => {
   const t = useTranslation();

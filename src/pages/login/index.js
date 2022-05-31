@@ -13,8 +13,8 @@ import routesPaths from '../../routes/routesPaths';
 import Input from '../../components/form/input';
 import Button from '../../components/common/button';
 
-import '../../styles/form.css';
-import './styles.css';
+import '../../styles/form.scss';
+import './styles.scss';
 
 const Login = () => {
   const t = useTranslation();

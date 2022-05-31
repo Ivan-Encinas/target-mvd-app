@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Link, Redirect, useHistory } from 'react-router-dom';
 import { string, z } from 'zod';
 import Input from '../../components/form/input';
+import Select from '../../components/form/select/select';
 import Button from '../../components/common/button';
 import routesPaths from '../../routes/routesPaths';
 import useTranslation from '../../hooks/useTranslation';
@@ -14,9 +15,8 @@ import { api } from '../../services/api';
 import { useSignupMutation } from '../../services/auth/auth';
 import { GENDER_OPTIONS, PASSWORD_REGEX } from '../../constants/constants';
 
-import '../../styles/form.css';
-import './styles.css';
-import Select from '../../components/form/select/select';
+import '../../styles/form.scss';
+import './styles.scss';
 
 const Signup = () => {
   const t = useTranslation();
@@ -65,7 +65,7 @@ const Signup = () => {
       <div className="form column left-column">
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
           <h1>{t('signup.title')}</h1>
-          <label htmlFor="username">Name</label>
+          <label htmlFor="username">{t('signup.labels.name')}</label>
           <Input
             register={register}
             type="text"
@@ -85,7 +85,7 @@ const Signup = () => {
           <label htmlFor="password">{t('signup.labels.password')}</label>
           <Input
             register={register}
-            placeholder="MIN 6 CHAR. LONG"
+            placeholder={t('signup.labels.passwordPlaceholder ')}
             type="password"
             name="password"
             error={errors.password}
@@ -100,12 +100,12 @@ const Signup = () => {
             error={errors.passwordConfirmation}
             handleFocus={handleFocus}
           />
-          <label htmlFor="gender">GENDER</label>
+          <label htmlFor="gender">{t('signup.labels.gender')}</label>
           <Select
             name="gender"
             options={[...GENDER_OPTIONS]}
             register={register}
-            placeholder="SELECT YOUR GENDER"
+            placeholder={t('signup.labels.selectGender')}
             error={errors.gender}
           />
 

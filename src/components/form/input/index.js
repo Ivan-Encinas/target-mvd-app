@@ -1,6 +1,6 @@
 import { string, func, object } from 'prop-types';
 import cn from 'classnames';
-import './styles.css';
+import './styles.scss';
 
 const Input = ({ register, type = 'text', name, error, handleFocus }) => (
   <div className="Input">

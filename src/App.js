@@ -7,7 +7,7 @@ import useTranslation from './hooks/useTranslation';
 import useAuth from './hooks/useAuth';
 import routes from './routes';
 
-import './styles/variables.css';
+import './styles/variables.scss';
 
 function App() {
   const t = useTranslation();

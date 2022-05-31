@@ -11,9 +11,13 @@
     "title": "Sign up",
     "alreadyHaveAccount": "SIGN IN",
     "labels": {
+      "name": "NAME",
       "email": "EMAIL",
       "password": "PASSWORD",
-      "passwordConfirmation": "CONFIRM PASSWORD"
+      "passwordConfirmation": "CONFIRM PASSWORD",
+      "passwordPlaceholder": "MIN. 6 CHARACTERS LONG",
+      "gender": "GENDER",
+      "selectGender": "SELECT YOUR GENDER"
     },
     "errors": {
       "emailMsg": "Must provide an email",
