@@ -1,19 +1,21 @@
 /* eslint-disable no-unused-vars */
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Link, Redirect, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { api } from '../../services/api';
-import { useLoginMutation } from '../../services/auth/auth';
-import useAuth from '../../hooks/useAuth';
-import useTranslation from '../../hooks/useTranslation';
-import routesPaths from '../../routes/routesPaths';
-import Input from '../../components/form/input';
-import Button from '../../components/common/button';
+import FacebookLogin from 'react-facebook-login';
 
-import '../../styles/form.scss';
+import { api } from 'services/api';
+import { useLoginMutation } from 'services/auth/auth';
+import useAuth from 'hooks/useAuth';
+import useTranslation from 'hooks/useTranslation';
+import routesPaths from 'routes/routesPaths';
+import Input from 'components/form/input';
+import Button from 'components/common/button';
+
+import 'styles/form.scss';
 import './styles.scss';
 
 const Login = () => {
@@ -22,6 +24,9 @@ const Login = () => {
   const { push } = useHistory();
   const [login, { isLoading, isSuccess, error }] = useLoginMutation();
   const { authenticated, user } = useAuth();
+  const [loginFacebook, setLoginFacebook] = useState(true);
+  const [data, setData] = useState({});
+  const [picture, setPicture] = useState('');
   const schema = z.object({
     email: z.string().email({ message: t('login.errors.emailMsg') }),
     password: z.string().min(1, { message: t('login.errors.passwordMsg') }),
@@ -39,10 +44,20 @@ const Login = () => {
       push(routesPaths.index);
     }
   }, [isSuccess, user, push]);
+
   useEffect(() => resetErrors, [resetErrors]);
   if (authenticated) {
     return <Redirect to={routesPaths.index} />;
   }
+
+  const responseFacebook = response => {
+    setData(response);
+    setPicture(response.picture.data.url);
+    if (response.accessToken) {
+      return <Redirect to={routesPaths.index} />;
+    }
+  };
+  const appId = process.env.REACT_APP_ID_FACEBOOK;
 
   return (
     <div className="row">
@@ -79,9 +94,14 @@ const Login = () => {
             <Link to={routesPaths.signup} className="forgot">
               {t('login.forgot')}
             </Link>
-            <Link to={routesPaths.signup} className="facebook">
-              {t('login.faceBook')}
-            </Link>
+            <FacebookLogin
+              appId={appId}
+              autoLoad={false}
+              fields="name,email,picture"
+              scope="public_profile,user_friends"
+              textButton={t('login.faceBook')}
+              callback={responseFacebook}
+            />
             <hr />
             <Link to={routesPaths.signup} className="signup">
               {t('login.dontHaveAccountMsg')}

@@ -1,7 +1,7 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 
-import { loginFulfilled, logoutFulfilled, signupFulfilled } from '../../services/auth/auth';
-import { getLoggedInUser, removeLoggedInUser, setLoggedInUser } from '../../utils/auth';
+import { loginFulfilled, logoutFulfilled, signupFulfilled } from 'services/auth/auth';
+import { getLoggedInUser, removeLoggedInUser, setLoggedInUser } from 'utils/auth';
 
 const loggedInUser = getLoggedInUser();
 

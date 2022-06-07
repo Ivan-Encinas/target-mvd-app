@@ -1,5 +1,5 @@
-import endpoints from '../../constants/endpoints';
-import { api } from '../../services/api';
+import endpoints from 'constants/endpoints';
+import { api } from 'services/api';
 
 const authApi = api.injectEndpoints({
   endpoints: builder => ({
