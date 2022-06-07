@@ -1,8 +1,8 @@
-import useTranslation from '../../hooks/useTranslation';
-import { useLogoutMutation } from '../../services/auth/auth';
-import Button from '../../components/common/button';
+import useTranslation from 'hooks/useTranslation';
+import { useLogoutMutation } from 'services/auth/auth';
+import Button from 'components/common/button';
 
-import logo from '../../logo.svg';
+import logo from 'logo.svg';
 import './styles.scss';
 
 const Home = () => {

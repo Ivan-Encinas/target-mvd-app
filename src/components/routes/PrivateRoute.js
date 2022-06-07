@@ -2,7 +2,7 @@ import { bool, string, node } from 'prop-types';
 // eslint-disable-next-line no-unused-vars
 import { Route, Redirect, useLocation } from 'react-router-dom';
 
-import routesPaths from '../../routes/routesPaths';
+import routesPaths from 'routes/routesPaths';
 
 const PrivateRoute = ({ children, exact = false, path, authenticated }) => {
   const location = useLocation();

@@ -7,15 +7,15 @@ import { Link, Redirect, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import FacebookLogin from 'react-facebook-login';
 
-import { api } from '../../services/api';
-import { useLoginMutation } from '../../services/auth/auth';
-import useAuth from '../../hooks/useAuth';
-import useTranslation from '../../hooks/useTranslation';
-import routesPaths from '../../routes/routesPaths';
-import Input from '../../components/form/input';
-import Button from '../../components/common/button';
+import { api } from 'services/api';
+import { useLoginMutation } from 'services/auth/auth';
+import useAuth from 'hooks/useAuth';
+import useTranslation from 'hooks/useTranslation';
+import routesPaths from 'routes/routesPaths';
+import Input from 'components/form/input';
+import Button from 'components/common/button';
 
-import '../../styles/form.scss';
+import 'styles/form.scss';
 import './styles.scss';
 
 const Login = () => {
@@ -44,19 +44,20 @@ const Login = () => {
       push(routesPaths.index);
     }
   }, [isSuccess, user, push]);
+
   useEffect(() => resetErrors, [resetErrors]);
   if (authenticated) {
     return <Redirect to={routesPaths.index} />;
   }
 
   const responseFacebook = response => {
-    console.log(response);
     setData(response);
     setPicture(response.picture.data.url);
     if (response.accessToken) {
       return <Redirect to={routesPaths.index} />;
     }
   };
+  const appId = process.env.REACT_APP_ID_FACEBOOK;
 
   return (
     <div className="row">
@@ -94,7 +95,7 @@ const Login = () => {
               {t('login.forgot')}
             </Link>
             <FacebookLogin
-              appId="166925907359293"
+              appId={appId}
               autoLoad={false}
               fields="name,email,picture"
               scope="public_profile,user_friends"
