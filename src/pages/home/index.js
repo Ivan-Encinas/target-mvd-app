@@ -4,7 +4,7 @@ import { useLogoutMutation } from 'services/auth/auth';
 import Button from 'components/common/button';
 
 import './styles.scss';
-import MapView from '../../components/map';
+import MapView from 'components/map';
 
 const Home = () => {
   const t = useTranslation();
