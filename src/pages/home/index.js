@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 import useTranslation from 'hooks/useTranslation';
 import { useLogoutMutation } from 'services/auth/auth';
 import Button from 'components/common/button';
 
-import logo from 'logo.svg';
 import './styles.scss';
+import MapView from '../../components/map';
 
 const Home = () => {
   const t = useTranslation();
@@ -13,8 +14,7 @@ const Home = () => {
 
   return (
     <div className="home">
-      <img src={logo} className="home__logo" alt={t('home.logoAltMsg')} />
-      <h1>{t('home.welcomeMsg')}</h1>
+      <MapView />
       <div className="home__logout">
         <Button handleClick={handleLogout} disabled={isLoading}>
           {t('home.logoutBtn')}
