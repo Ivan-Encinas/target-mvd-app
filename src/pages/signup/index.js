@@ -1,17 +1,15 @@
-/* eslint-disable no-unused-vars */
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Link, Redirect, useHistory } from 'react-router-dom';
-import { string, z } from 'zod';
+import { Link } from 'react-router-dom';
+import { z } from 'zod';
 import Input from 'components/form/input';
 import Select from 'components/form/select/select';
 import Button from 'components/common/button';
 import emailjs from 'emailjs-com';
 import routesPaths from 'routes/routesPaths';
 import useTranslation from 'hooks/useTranslation';
-import useAuth from 'hooks/useAuth';
 import { api } from 'services/api';
 import { useSignupMutation } from 'services/auth/auth';
 import { GENDER_OPTIONS, PASSWORD_REGEX } from 'constants/constants';
@@ -22,13 +20,8 @@ import './styles.scss';
 const Signup = () => {
   const t = useTranslation();
   const dispatch = useDispatch();
-  const { push } = useHistory();
-  const { user, authenticated } = useAuth();
-  const [signup, { isLoading, isSuccess, error }] = useSignupMutation();
-  const genderList = [
-    { value: 'female', name: 'FEMALE' },
-    { value: 'male', name: 'MALE' },
-  ];
+  const [signup, { isLoading, error }] = useSignupMutation();
+
   const schema = z
     .object({
       username: z.string().min(1),
@@ -48,10 +41,10 @@ const Signup = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: zodResolver(schema) });
-  const [isSend, setIsSend] = useState(false);
+  const [isSent, setIsSent] = useState(false);
   const [toSend, setToSend] = useState({
     to_name: '',
-    message: `Hello, thank you for signing up to Target MVD!`,
+    message: t('signup.confirmation.emailMessage'),
     to: '',
   });
 
@@ -73,14 +66,18 @@ const Signup = () => {
   const resetErrors = useCallback(() => dispatch(api.util.resetApiState()), [dispatch]);
   const handleFocus = () => error && resetErrors();
 
+  const serviceId = process.env.REACT_APP_SERVICE_ID;
+  const templateId = process.env.REACT_APP_TEMPLATE_ID;
+  const publicKey = process.env.REACT_APP_PUBLIC_KEY;
+
   const emailSendVerification = () => {
-    if (!isSend) {
+    if (!isSent) {
       emailjs
-        .send('service_5h9ht9l', 'template_se2l61q', toSend, 'XO-v6R9Eaw7t52iAM')
-        .then(response => {
-          setIsSend(true);
+        .send(serviceId, templateId, toSend, publicKey)
+        .then(() => {
+          setIsSent(true);
         })
-        .catch(err => {});
+        .catch(() => {});
     }
   };
   useEffect(() => {
@@ -88,11 +85,11 @@ const Signup = () => {
   }, [resetErrors]);
   useEffect(() => {
     emailSendVerification();
-  }, [toSend, isSend]);
+  }, [toSend, isSent]);
 
   return (
     <div className="row">
-      {!isSend ? (
+      {!isSent ? (
         <div className="form column left-column">
           <form onSubmit={handleSubmit(onSubmit)} noValidate>
             <h1>{t('signup.title')}</h1>
@@ -140,7 +137,7 @@ const Signup = () => {
               error={errors.gender}
             />
 
-            {error && error.data && (
+            {error?.data.data && (
               <p className="error-message">{error.data.errors?.full_messages[0]}</p>
             )}
             <div className="button-container">
@@ -158,12 +155,10 @@ const Signup = () => {
         <div className="form column left-column">
           <form>
             <div className="circles"> </div>
-            <h1 className="center">Yey!</h1>
-            <h3 className="center">Only one more step to start enjoying </h3>
-            <h1 className="center">TARGET</h1>
-            <p className="center">
-              We’ve sent an email to confirm your account. Please check your inbox.
-            </p>
+            <h1 className="center">{t('signup.confirmation.title')}</h1>
+            <h3 className="center">{t('signup.confirmation.subtitle')}</h3>
+            <h1 className="center">{t('signup.confirmation.name')}</h1>
+            <p className="center">{t('signup.confirmation.message')}</p>
           </form>
         </div>
       )}

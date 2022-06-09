@@ -19,6 +19,13 @@
       "gender": "GENDER",
       "selectGender": "SELECT YOUR GENDER"
     },
+    "confirmation": {
+      "title": "Yey!",
+      "subtitle": "Only one more step to start enjoying ",
+      "name": "TARGET",
+      "message": "We`ve sent an email to confirm your account. Please check your inbox.",
+      "emailMessage": "Hello, thank you for signing up to Target MVD!"
+    },
     "errors": {
       "emailMsg": "Must provide an email",
       "passwordMsg": "Password must have at least 8 characters, a letter and a number",

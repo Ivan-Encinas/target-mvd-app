@@ -1,10 +1,9 @@
-/* eslint-disable no-unused-vars */
 import useTranslation from 'hooks/useTranslation';
 import { useLogoutMutation } from 'services/auth/auth';
 import Button from 'components/common/button';
+import MapView from 'components/map';
 
 import './styles.scss';
-import MapView from 'components/map';
 
 const Home = () => {
   const t = useTranslation();
