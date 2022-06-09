@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -24,7 +23,6 @@ const Login = () => {
   const { push } = useHistory();
   const [login, { isLoading, isSuccess, error }] = useLoginMutation();
   const { authenticated, user } = useAuth();
-  const [loginFacebook, setLoginFacebook] = useState(true);
   const [data, setData] = useState({});
   const [picture, setPicture] = useState('');
   const schema = z.object({

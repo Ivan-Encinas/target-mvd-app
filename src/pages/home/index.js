@@ -1,8 +1,8 @@
 import useTranslation from 'hooks/useTranslation';
 import { useLogoutMutation } from 'services/auth/auth';
 import Button from 'components/common/button';
+import MapView from 'components/map';
 
-import logo from 'logo.svg';
 import './styles.scss';
 
 const Home = () => {
@@ -13,8 +13,7 @@ const Home = () => {
 
   return (
     <div className="home">
-      <img src={logo} className="home__logo" alt={t('home.logoAltMsg')} />
-      <h1>{t('home.welcomeMsg')}</h1>
+      <MapView />
       <div className="home__logout">
         <Button handleClick={handleLogout} disabled={isLoading}>
           {t('home.logoutBtn')}
