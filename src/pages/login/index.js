@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -24,8 +23,8 @@ const Login = () => {
   const { push } = useHistory();
   const [login, { isLoading, isSuccess, error }] = useLoginMutation();
   const { authenticated, user } = useAuth();
-  const [data, setData] = useState({});
-  const [picture, setPicture] = useState('');
+  const [, setData] = useState({});
+  const [, setPicture] = useState('');
   const schema = z.object({
     email: z.string().email({ message: t('login.errors.emailMsg') }),
     password: z.string().min(1, { message: t('login.errors.passwordMsg') }),

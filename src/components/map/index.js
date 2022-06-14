@@ -7,7 +7,6 @@ import './styles.scss';
 
 const MapView = () => {
   const [position, setPosition] = useState({
-    ready: false,
     where: [],
     error: null,
   });
@@ -17,7 +16,7 @@ const MapView = () => {
     maximumAge: 0,
   };
   const geolocationEnabled = () => {
-    setPosition({ ready: false, error: null });
+    setPosition({ error: null });
     return navigator.geolocation.getCurrentPosition(
       position => {
         geoSuccess(position);
@@ -38,19 +37,21 @@ const MapView = () => {
     return geolocationEnabled();
   }, []);
 
-  return position.where?.length === 2 ? (
-    <MapContainer
-      className="map__container"
-      center={position.where}
-      zoom="20"
-      scrollWheelZoom={true}
-    >
-      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      <Marker position={position.where} icon={marker}>
-        <Popup>You are here.</Popup>
-      </Marker>
-    </MapContainer>
-  ) : null;
+  return (
+    position.where?.length === 2 && (
+      <MapContainer
+        className="map__container"
+        center={position.where}
+        zoom="20"
+        scrollWheelZoom={true}
+      >
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <Marker position={position.where} icon={marker}>
+          <Popup>You are here.</Popup>
+        </Marker>
+      </MapContainer>
+    )
+  );
 };
 
 export default MapView;
