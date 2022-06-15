@@ -8,7 +8,6 @@ import './styles.scss';
 const MapView = () => {
   const [position, setPosition] = useState({
     where: [],
-    error: null,
   });
   const geoOptions = {
     enableHighAccuracy: true,
@@ -16,7 +15,6 @@ const MapView = () => {
     maximumAge: 0,
   };
   const geolocationEnabled = () => {
-    setPosition({ error: null });
     return navigator.geolocation.getCurrentPosition(
       position => {
         geoSuccess(position);
@@ -28,7 +26,6 @@ const MapView = () => {
 
   const geoSuccess = position => {
     setPosition({
-      ready: true,
       where: [position.coords.latitude, position.coords.longitude],
     });
   };

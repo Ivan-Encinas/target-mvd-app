@@ -23,8 +23,8 @@ const Login = () => {
   const { push } = useHistory();
   const [login, { isLoading, isSuccess, error }] = useLoginMutation();
   const { authenticated, user } = useAuth();
-  const [, setData] = useState({});
-  const [, setPicture] = useState('');
+  const [data, setData] = useState({});
+  const [picture, setPicture] = useState('');
   const schema = z.object({
     email: z.string().email({ message: t('login.errors.emailMsg') }),
     password: z.string().min(1, { message: t('login.errors.passwordMsg') }),
