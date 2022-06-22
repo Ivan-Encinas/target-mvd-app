@@ -1,53 +1,28 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import marker from './icon';
-import { useEffect, useState } from 'react';
+import Target from '../target';
 
 import 'leaflet/dist/leaflet.css';
 import './styles.scss';
 
-const MapView = () => {
-  const [position, setPosition] = useState({
-    where: [],
-  });
-  const geoOptions = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0,
-  };
-  const geolocationEnabled = () => {
-    return navigator.geolocation.getCurrentPosition(
-      position => {
-        geoSuccess(position);
-      },
-      () => {},
-      geoOptions
-    );
-  };
-
-  const geoSuccess = position => {
-    setPosition({
-      where: [position.coords.latitude, position.coords.longitude],
-    });
-  };
-
-  useEffect(() => {
-    return geolocationEnabled();
-  }, []);
-
+const MapView = props => {
   return (
-    position.where?.length === 2 && (
-      <MapContainer
-        className="map__container"
-        center={position.where}
-        zoom="20"
-        scrollWheelZoom={true}
-      >
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        <Marker position={position.where} icon={marker}>
-          <Popup>You are here.</Popup>
-        </Marker>
-      </MapContainer>
-    )
+    <>
+      {props.currentPosition.where?.length === 2 ? (
+        <MapContainer
+          className="map__container"
+          center={props.currentPosition.where}
+          zoom="20"
+          scrollWheelZoom={true}
+        >
+          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+          <Target sendLatLng={props.sendLatLng} targets={props.targets} />
+          <Marker position={props.currentPosition.where} icon={marker}>
+            <Popup>You are here.</Popup>
+          </Marker>
+        </MapContainer>
+      ) : null}
+    </>
   );
 };
 

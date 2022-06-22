@@ -5,7 +5,13 @@
   "home": {
     "welcomeMsg": "Welcome to Target MVD APP",
     "logoAltMsg": "React logo",
-    "logoutBtn": "Logout"
+    "logoutBtn": "Logout",
+    "create": {
+      "radius": "Specify area length",
+      "title": "Target title",
+      "topic": "Select a topic",
+      "saveTarget": "Save target"
+    }
   },
   "signup": {
     "title": "Sign up",
@@ -50,5 +56,11 @@
     "button": {
       "signin": "Sign in"
     }
+  },
+  "sideBar": {
+    "create": {
+      "title": "Create target"
+    },
+    "subtitle": "CREATE NEW TARGET"
   }
 }
