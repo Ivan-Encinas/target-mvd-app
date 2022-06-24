@@ -105,11 +105,11 @@ const Home = () => {
     <div className="home">
       <MapView currentPosition={currentPosition} sendLatLng={sendLatLng} targets={targetsList} />
       <SideBar title={'sideBar.create.title'}>
-        <img className="side-bar-header-title-icon" src={sideBarIcon} alt=""></img>
-        <h3 className="side-bar-header-sub-title">{t('sideBar.subtitle')}</h3>
+        <img className="sidebar__icon" src={sideBarIcon} alt=""></img>
+        <h3 className="sidebar__subtitle">{t('sideBar.subtitle')}</h3>
         {topics ? (
           <div>
-            <form className="side-bar-form" onSubmit={handleSubmit(onSubmit)} noValidate>
+            <form className="sidebar__form" onSubmit={handleSubmit(onSubmit)} noValidate>
               <label htmlFor="radius">{t('home.create.radius')}</label>
               <Input register={register} type="number" name="radius" />
 

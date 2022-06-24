@@ -1,4 +1,4 @@
-.side-bar {
+.sidebar {
   height: 100vh;
   width: 20vw;
   position: fixed;
@@ -11,7 +11,7 @@
   height: 28px;
 }
 
-.side-bar-header {
+.sidebar__header {
   width: 100%;
   margin-top: 0rem;
   background-color: var(--color-light-blue);
@@ -19,24 +19,24 @@
   padding: 0.5rem 0rem 0.5rem 0rem;
 }
 
-.side-bar-header-title {
+.sidebar__title {
   font-size: 20px;
   line-height: 23px;
   letter-spacing: 3px;
 }
 
-.side-bar-header-sub-title {
+.sidebar__subtitle {
   font-size: 15px;
   line-height: 13px;
   text-align: center;
   letter-spacing: 1.65px;
 }
 
-.side-bar-header-title-icon {
+.sidebar__icon {
   padding: 1rem 1rem 0rem;
 }
 
-.side-bar-form {
+.sidebar__form {
   padding: 2rem 2.5rem 0rem;
 }
 

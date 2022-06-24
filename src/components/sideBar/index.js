@@ -7,9 +7,9 @@ import './styles.scss';
 const SideBar = props => {
   const t = useTranslation();
   return (
-    <div className="side-bar">
-      <div className="side-bar-header">
-        <h1 className="side-bar-header-title">{t(props.title)}</h1>
+    <div className="sidebar">
+      <div className="sidebar__header">
+        <h1 className="sidebar__title">{t(props.title)}</h1>
       </div>
 
       {props.children}
