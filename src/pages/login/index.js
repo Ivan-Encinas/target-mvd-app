@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import { Link, Redirect, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import FacebookLogin from 'react-facebook-login';
+import { loginSchema } from 'schemas';
 
 import { api } from 'services/api';
 import { useLoginMutation } from 'services/auth/auth';
@@ -25,15 +25,12 @@ const Login = () => {
   const { authenticated, user } = useAuth();
   const [data, setData] = useState({});
   const [picture, setPicture] = useState('');
-  const schema = z.object({
-    email: z.string().email({ message: t('login.errors.emailMsg') }),
-    password: z.string().min(1, { message: t('login.errors.passwordMsg') }),
-  });
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: zodResolver(schema) });
+  } = useForm({ resolver: zodResolver(loginSchema) });
   const onSubmit = data => login(data);
   const resetErrors = useCallback(() => dispatch(api.util.resetApiState()), [dispatch]);
   const handleFocus = () => error && resetErrors();

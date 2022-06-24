@@ -10,7 +10,8 @@
       "radius": "Specify area length",
       "title": "Target title",
       "topic": "Select a topic",
-      "saveTarget": "Save target"
+      "saveTarget": "Save target",
+      "placeholder": "Select a topic"
     }
   },
   "signup": {

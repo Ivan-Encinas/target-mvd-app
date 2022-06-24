@@ -5,7 +5,8 @@ import MapView from 'components/map';
 import { useCreateTargetMutation, useGetTargetsQuery } from 'services/target/target';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
+import { homeSchema } from 'schemas';
+
 import Input from 'components/form/input';
 import Select from 'components/form/select/select';
 import 'components/sideBar/styles.scss';
@@ -57,7 +58,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    return geolocationEnabled();
+    geolocationEnabled();
   }, []);
 
   const parseTopics = () => {
@@ -85,17 +86,12 @@ const Home = () => {
   useEffect(() => {
     parseTargets();
   }, [targets]);
-  const schema = z.object({
-    radius: z.string().min(1),
-    title: z.string().min(1),
-    topic_id: z.string().min(1),
-  });
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: zodResolver(schema) });
+  } = useForm({ resolver: zodResolver(homeSchema) });
 
   const onSubmit = data => {
     createTarget({ ...data, ...latLng });
@@ -125,7 +121,7 @@ const Home = () => {
                 register={register}
                 name="topic_id"
                 options={topicsList}
-                placeholder="Select a topic"
+                placeholder={t('home.create.placeholder')}
               />
               <div className="save-button">
                 <Button type="submit">{t('home.create.saveTarget')}</Button>

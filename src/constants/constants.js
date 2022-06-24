@@ -10,5 +10,5 @@ export const AUTH_USER_KEY = 'user';
 // SIGN-UP GENDER
 export const GENDER_OPTIONS = [
   { id: 'female', label: 'FEMALE' },
-  { id: 'male', label: 'FEMALE' },
+  { id: 'male', label: 'MALE' },
 ];

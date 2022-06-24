@@ -13,7 +13,7 @@ const SideBar = props => {
       </div>
 
       {props.children}
-      <img className="smiles" src={logo} alt=""></img>
+      <img className="smiles" src={logo} alt="App smiley logo"></img>
     </div>
   );
 };
