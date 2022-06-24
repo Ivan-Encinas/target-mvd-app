@@ -5,19 +5,19 @@ import Target from '../target';
 import 'leaflet/dist/leaflet.css';
 import './styles.scss';
 
-const MapView = props => {
+const MapView = ({ currentPosition, sendLatLng, targets }) => {
   return (
     <>
-      {props.currentPosition.where?.length === 2 ? (
+      {currentPosition.where?.length === 2 ? (
         <MapContainer
           className="map__container"
-          center={props.currentPosition.where}
+          center={currentPosition.where}
           zoom="20"
           scrollWheelZoom={true}
         >
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-          <Target sendLatLng={props.sendLatLng} targets={props.targets} />
-          <Marker position={props.currentPosition.where} icon={marker}>
+          <Target sendLatLng={sendLatLng} targets={targets} />
+          <Marker position={currentPosition.where} icon={marker}>
             <Popup>You are here.</Popup>
           </Marker>
         </MapContainer>
