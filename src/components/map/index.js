@@ -8,7 +8,7 @@ import './styles.scss';
 const MapView = ({ currentPosition, sendLatLng, targets }) => {
   return (
     <>
-      {currentPosition.where?.length === 2 ? (
+      {currentPosition.where?.length === 2 && (
         <MapContainer
           className="map__container"
           center={currentPosition.where}
@@ -21,7 +21,7 @@ const MapView = ({ currentPosition, sendLatLng, targets }) => {
             <Popup>You are here.</Popup>
           </Marker>
         </MapContainer>
-      ) : null}
+      )}
     </>
   );
 };

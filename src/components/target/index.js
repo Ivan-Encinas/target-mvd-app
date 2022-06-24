@@ -19,7 +19,7 @@ const Target = ({ sendLatLng, targets }) => {
           <Popup>{target[2]}</Popup>
         </Marker>
       ))}
-      {latLng ? <Marker position={latLng} icon={myIcon} /> : null}
+      {latLng && <Marker position={latLng} icon={myIcon} />}
     </>
   );
 };
