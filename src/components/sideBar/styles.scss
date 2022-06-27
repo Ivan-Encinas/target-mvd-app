@@ -1,0 +1,65 @@
+.sidebar {
+  height: 100vh;
+  width: 20vw;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+}
+.smiles {
+  width: 48px;
+  height: 28px;
+}
+
+.sidebar__header {
+  width: 100%;
+  margin-top: 0rem;
+  background-color: var(--color-light-blue);
+  color: var(--color-white);
+  padding: 0.5rem 0rem 0.5rem 0rem;
+}
+
+.sidebar__title {
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 3px;
+}
+
+.sidebar__subtitle {
+  font-size: 15px;
+  line-height: 13px;
+  text-align: center;
+  letter-spacing: 1.65px;
+}
+
+.sidebar__icon {
+  padding: 1rem 1rem 0rem;
+}
+
+.sidebar__form {
+  padding: 2rem 2.5rem 0rem;
+}
+
+.button {
+  background-color: var(--color-black);
+  border: none;
+  color: var(--color-white);
+  font-size: var(--font-size-button);
+  font-weight: 700;
+  margin: 0.3rem 0;
+  padding: 0.8rem;
+}
+
+.saveButton {
+  margin-top: 8rem;
+}
+
+.button:hover {
+  background-color: var(--color-light-black);
+  cursor: pointer;
+}
+
+.button:disabled {
+  background-color: var(--color-light-grey);
+  cursor: unset;
+}

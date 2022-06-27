@@ -10,9 +10,9 @@ const Select = ({ register, options, name, error, placeholder, ...rest }) => (
       <option value="" disabled selected className="placeholder">
         {placeholder}
       </option>
-      {options.map(value => (
-        <option key={uuid()} value={value}>
-          {value}
+      {options.map(({ id, label }) => (
+        <option key={uuid()} value={id}>
+          {label}
         </option>
       ))}
     </select>
