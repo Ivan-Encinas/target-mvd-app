@@ -12,7 +12,8 @@
       "topic": "Select a topic",
       "saveTarget": "Save target",
       "placeholder": "Select a topic"
-    }
+    },
+    "location": "You are here!"
   },
   "signup": {
     "title": "Sign up",

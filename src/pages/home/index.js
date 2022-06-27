@@ -83,6 +83,7 @@ const Home = () => {
   useEffect(() => {
     parseTopics();
   }, [topics]);
+
   useEffect(() => {
     parseTargets();
   }, [targets]);
@@ -123,7 +124,7 @@ const Home = () => {
                 options={topicsList}
                 placeholder={t('home.create.placeholder')}
               />
-              <div className="save-button">
+              <div className="saveButton">
                 <Button type="submit">{t('home.create.saveTarget')}</Button>
               </div>
             </form>

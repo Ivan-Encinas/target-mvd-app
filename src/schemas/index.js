@@ -17,16 +17,12 @@ export const signupSchema = z
     username: z.string().min(1),
     email: z.string().email({ message: 'Must provide an email' }),
     gender: z.string().min(1),
-    password: z
-      .string()
-      .regex(PASSWORD_REGEX, {
-        message: 'Password must have at least 8 characters, a letter and a number',
-      }),
-    passwordConfirmation: z
-      .string()
-      .regex(PASSWORD_REGEX, {
-        message: 'Password must have at least 8 characters, a letter and a number',
-      }),
+    password: z.string().regex(PASSWORD_REGEX, {
+      message: 'Password must have at least 8 characters, a letter and a number',
+    }),
+    passwordConfirmation: z.string().regex(PASSWORD_REGEX, {
+      message: 'Password must have at least 8 characters, a letter and a number',
+    }),
   })
   .refine(data => data.password === data.passwordConfirmation, {
     message: 'Passwords must match',
