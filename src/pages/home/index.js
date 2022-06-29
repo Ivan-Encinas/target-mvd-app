@@ -29,6 +29,7 @@ const Home = () => {
   const [topicsList, setTopicsList] = useState([]);
   const [targetsList, setTargetsList] = useState([]);
   const [latLng, setLatLng] = useState({});
+  const [targetsLimit, setTargetsLimit] = useState(false);
   const [currentPosition, setCurrentPosition] = useState({
     ready: false,
     where: [],
@@ -95,7 +96,12 @@ const Home = () => {
   } = useForm({ resolver: zodResolver(homeSchema) });
 
   const onSubmit = data => {
-    createTarget({ ...data, ...latLng });
+    if (targetsList.length <= 9) {
+      createTarget({ ...data, ...latLng });
+    } else {
+      setTargetsLimit(true);
+      window.alert(t('target.limit.alert'));
+    }
   };
 
   const sendLatLng = dataFromChild => {
@@ -125,7 +131,9 @@ const Home = () => {
                 placeholder={t('home.create.placeholder')}
               />
               <div className="saveButton">
-                <Button type="submit">{t('home.create.saveTarget')}</Button>
+                <Button type="submit">
+                  {isLoading ? t('home.create.savingTarget') : t('home.create.saveTarget')}
+                </Button>
               </div>
             </form>
           </div>

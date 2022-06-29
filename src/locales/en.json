@@ -11,6 +11,7 @@
       "title": "Target title",
       "topic": "Select a topic",
       "saveTarget": "Save target",
+      "savingTarget": "Saving...",
       "placeholder": "Select a topic"
     },
     "location": "You are here!"
@@ -64,5 +65,10 @@
       "title": "Create target"
     },
     "subtitle": "CREATE NEW TARGET"
+  },
+  "target": {
+    "limit": {
+      "alert": "You cannot create more than 10 targets"
+    }
   }
 }
