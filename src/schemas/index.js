@@ -7,6 +7,12 @@ export const homeSchema = z.object({
   topic_id: z.string().min(1),
 });
 
+export const profileSchema = z.object({
+  current_password: z.string().min(1),
+  password: z.string().min(1),
+  password_confirmation: z.string().min(1),
+});
+
 export const loginSchema = z.object({
   email: z.string().email({ message: 'Must provide an email' }),
   password: z.string().min(1, { message: 'Must provide a password' }),

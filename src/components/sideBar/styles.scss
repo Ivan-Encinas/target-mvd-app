@@ -37,17 +37,19 @@
 }
 
 .sidebar__form {
-  padding: 2rem 2.5rem 0rem;
+  padding: 1rem 2.5rem 0rem;
 }
 
 .button {
   background-color: var(--color-black);
   border: none;
   color: var(--color-white);
-  font-size: var(--font-size-button);
+  font-size: 15px;
   font-weight: 700;
   margin: 0.3rem 0;
   padding: 0.8rem;
+  max-width: 155px;
+  width: 100%;
 }
 
 .saveButton {
@@ -62,4 +64,13 @@
 .button:disabled {
   background-color: var(--color-light-grey);
   cursor: unset;
+}
+
+.sidebar__menu {
+  width: 10%;
+  display: inline-block;
+}
+.sidebar__name {
+  width: 90%;
+  display: inline-block;
 }
