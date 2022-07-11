@@ -14,7 +14,9 @@
       "savePassword": "Save changes",
       "placeholder": "Select a topic"
     },
-    "location": "You are here!"
+    "location": "You are here!",
+    "altCreate": "Aim Icon",
+    "altEdit": "Profile Icon"
   },
   "signup": {
     "title": "Sign up",
@@ -84,6 +86,7 @@
   "menu": {
     "target": "Create target",
     "profile": "Edit Profile",
-    "logout": "Log Out"
+    "logout": "Log Out",
+    "alt": "Menu Button"
   }
 }
