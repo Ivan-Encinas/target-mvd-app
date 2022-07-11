@@ -26,6 +26,7 @@
     "redux-logger": "^3.0.6",
     "sass": "^1.52.1",
     "short-id": "^0.1.0-1",
+    "sweetalert2": "^11.4.20",
     "use-intl": "^2.7.2",
     "web-vitals": "^2.1.4",
     "zod": "^3.16.0"

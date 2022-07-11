@@ -11,10 +11,12 @@
       "title": "Target title",
       "topic": "Select a topic",
       "saveTarget": "Save target",
-      "savingTarget": "Saving...",
+      "savePassword": "Save changes",
       "placeholder": "Select a topic"
     },
-    "location": "You are here!"
+    "location": "You are here!",
+    "altCreate": "Aim Icon",
+    "altEdit": "Profile Icon"
   },
   "signup": {
     "title": "Sign up",
@@ -62,7 +64,7 @@
   },
   "sideBar": {
     "create": {
-      "title": "Create target"
+      "title": "CREATE TARGET"
     },
     "subtitle": "CREATE NEW TARGET"
   },
@@ -70,5 +72,21 @@
     "limit": {
       "alert": "You cannot create more than 10 targets"
     }
+  },
+  "profile": {
+    "edit": {
+      "subtitle": "EDIT PROFILE",
+      "email": "Email",
+      "currentPassword": "Current password",
+      "newPassword": "New password",
+      "repeatPassword": "Repeat new password",
+      "saveButton": "Save changes"
+    }
+  },
+  "menu": {
+    "target": "Create target",
+    "profile": "Edit Profile",
+    "logout": "Log Out",
+    "alt": "Menu Button"
   }
 }
