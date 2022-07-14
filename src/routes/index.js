@@ -1,8 +1,8 @@
-/* eslint-disable no-unused-vars */
 import routesPaths from './routesPaths';
 import Home from '../pages/home';
 import Signup from '../pages/signup';
 import Login from '../pages/login';
+import ForgotPassword from '../pages/forgotPassword';
 
 const routes = [
   {
@@ -18,6 +18,10 @@ const routes = [
   {
     path: routesPaths.login,
     component: <Login />,
+  },
+  {
+    path: routesPaths.forgotPassword,
+    component: <ForgotPassword />,
   },
 ];
 

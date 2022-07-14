@@ -34,3 +34,7 @@ export const signupSchema = z
     message: 'Passwords must match',
     path: ['passwordConfirmation'],
   });
+
+export const forgotPasswordSchema = z.object({
+  email: z.string().email({ message: 'Must provide an email' }),
+});

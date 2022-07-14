@@ -86,7 +86,7 @@ const Login = () => {
             <Button type="submit" disabled={isLoading}>
               {t('login.button.signin')}
             </Button>
-            <Link to={routesPaths.signup} className="forgot">
+            <Link to={routesPaths.forgotPassword} className="forgot">
               {t('login.forgot')}
             </Link>
             <FacebookLogin

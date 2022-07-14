@@ -88,5 +88,11 @@
     "profile": "Edit Profile",
     "logout": "Log Out",
     "alt": "Menu Button"
+  },
+  "forgotPassword": {
+    "title": "Forgot your password?",
+    "email": "Email",
+    "button": "Recover",
+    "message": "You will receive an email with the instructions about how to change your password."
   }
 }
