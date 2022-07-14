@@ -25,18 +25,14 @@
   border: 0px;
 }
 
-.i6 {
-  background-image: url('../../assets/i6.png');
-  background-repeat: no-repeat;
-  display: block;
-  margin: 0 3.4rem auto;
-  width: 500px;
-  height: 625px;
-  border: 0px;
-}
-.explanation {
-  font-size: 14px;
-  line-height: 26px;
+.phone__section {
+  height: 595px;
+  .icon {
+    display: block;
+    margin: auto;
+    width: 477px;
+    height: 640px;
+  }
 }
 
 .forgot {
@@ -45,10 +41,8 @@
   text-align: center;
 }
 
-#apple-store {
-  background-image: url('../../assets/appstore-button.png');
-  background-repeat: no-repeat;
-  margin: 0 16.87rem auto;
+.apple-store {
+  margin: auto;
   display: block;
   height: 38px;
   width: 120px;
@@ -56,29 +50,27 @@
   border: none;
 }
 
-#facebook {
-  background-image: url('../../assets/Facebook.png');
-  background-repeat: no-repeat;
-  height: 27px;
-  width: 26px;
-  background-color: #ffffff00;
-  border: none;
-  float: left;
-}
-#twitter {
-  background-image: url('../../assets/Twitter.png');
-  background-repeat: no-repeat;
-  height: 27px;
-  width: 26px;
-  background-color: #ffffff00;
-  border: none;
-  float: right;
-}
-
 .social-media {
-  margin: 1rem 18.1rem auto;
+  margin: 1rem auto;
   display: block;
   width: 77px;
+
+  .facebook {
+    background-repeat: no-repeat;
+    height: 27px;
+    width: 26px;
+    background-color: #ffffff00;
+    border: none;
+    float: left;
+  }
+  .twitter {
+    background-repeat: no-repeat;
+    height: 27px;
+    width: 26px;
+    background-color: #ffffff00;
+    border: none;
+    float: right;
+  }
 }
 
 .center {
