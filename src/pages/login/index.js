@@ -5,6 +5,10 @@ import { Link, Redirect, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import FacebookLogin from 'react-facebook-login';
 import { loginSchema } from 'schemas';
+import applestoreButton from 'assets/appstore-button.png';
+import twitterButton from 'assets/Twitter.png';
+import facebookButton from 'assets/Facebook.png';
+import phoneIcon from 'assets/i6Phone.svg';
 
 import { api } from 'services/api';
 import { useLoginMutation } from 'services/auth/auth';
@@ -55,8 +59,8 @@ const Login = () => {
   const appId = process.env.REACT_APP_ID_FACEBOOK;
 
   return (
-    <div className="row">
-      <div className="form column left-column">
+    <section className="row">
+      <article className="form column left-column">
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
           <div className="circles"> </div>
           <h1 className="title">{t('login.title')}</h1>
@@ -86,7 +90,7 @@ const Login = () => {
             <Button type="submit" disabled={isLoading}>
               {t('login.button.signin')}
             </Button>
-            <Link to={routesPaths.signup} className="forgot">
+            <Link to={routesPaths.forgotPassword} className="forgot">
               {t('login.forgot')}
             </Link>
             <FacebookLogin
@@ -103,16 +107,24 @@ const Login = () => {
             </Link>
           </div>
         </form>
-      </div>
-      <div className="column right-column">
-        <div className="i6"></div>
-        <button id="apple-store"></button>
-        <div className="social-media">
-          <button id="facebook"></button>
-          <button id="twitter"></button>
+      </article>
+      <article className="column right-column">
+        <div className="phone__section">
+          <img className="icon" src={phoneIcon} alt="Applestore Logo" />
         </div>
-      </div>
-    </div>
+        <a target="_blank" href="https://www.apple.com/la/app-store/" rel="noreferrer">
+          <img className="apple-store" src={applestoreButton} alt="Applestore Logo" />
+        </a>
+        <div className="social-media">
+          <a target="_blank" href="https://es-la.facebook.com/" rel="noreferrer">
+            <img className="facebook" src={facebookButton} alt="Facebook Logo" />
+          </a>
+          <a target="_blank" href="https://twitter.com/?lang=es" rel="noreferrer">
+            <img className="twitter" src={twitterButton} alt="Twitter Logo" />
+          </a>
+        </div>
+      </article>
+    </section>
   );
 };
 export default Login;

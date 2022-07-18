@@ -13,6 +13,10 @@ import { api } from 'services/api';
 import { useSignupMutation } from 'services/auth/auth';
 import { GENDER_OPTIONS } from 'constants/constants';
 import { signupSchema } from 'schemas';
+import applestoreButton from 'assets/appstore-button.png';
+import twitterButton from 'assets/Twitter.png';
+import facebookButton from 'assets/Facebook.png';
+import phoneIcon from 'assets/i6Phone.svg';
 
 import 'styles/form.scss';
 import './styles.scss';
@@ -74,9 +78,9 @@ const Signup = () => {
   }, [toSend, isSent]);
 
   return (
-    <div className="row">
+    <section className="row">
       {!isSent ? (
-        <div className="form column left-column">
+        <article className="form column left-column">
           <form onSubmit={handleSubmit(onSubmit)} noValidate>
             <h1>{t('signup.title')}</h1>
             <label htmlFor="username">{t('signup.labels.name')}</label>
@@ -136,7 +140,7 @@ const Signup = () => {
               </Link>
             </div>
           </form>
-        </div>
+        </article>
       ) : (
         <div className="form column left-column">
           <form>
@@ -149,15 +153,23 @@ const Signup = () => {
         </div>
       )}
 
-      <div className="column right-column">
-        <div className="i6"></div>
-        <button id="apple-store"></button>
-        <div className="social-media">
-          <button id="facebook"></button>
-          <button id="twitter"></button>
+      <article className="column right-column">
+        <div className="phone__section">
+          <img className="icon" src={phoneIcon} alt="Applestore Logo" />
         </div>
-      </div>
-    </div>
+        <a target="_blank" href="https://www.apple.com/la/app-store/" rel="noreferrer">
+          <img className="apple-store" src={applestoreButton} alt="Applestore Logo" />
+        </a>
+        <div className="social-media">
+          <a target="_blank" href="https://es-la.facebook.com/" rel="noreferrer">
+            <img className="facebook" src={facebookButton} alt="Facebook Logo" />
+          </a>
+          <a target="_blank" href="https://twitter.com/?lang=es" rel="noreferrer">
+            <img className="twitter" src={twitterButton} alt="Twitter Logo" />
+          </a>
+        </div>
+      </article>
+    </section>
   );
 };
 export default Signup;
