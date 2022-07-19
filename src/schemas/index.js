@@ -38,3 +38,8 @@ export const signupSchema = z
 export const forgotPasswordSchema = z.object({
   email: z.string().email({ message: 'Must provide an email' }),
 });
+
+export const contactSchema = z.object({
+  email: z.string().min(1),
+  body: z.string().min(1),
+});

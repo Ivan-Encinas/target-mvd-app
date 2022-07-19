@@ -126,3 +126,51 @@ hr {
   font-size: 15px !important;
   padding: 3rem 0 0 !important;
 }
+
+.close {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  margin: 0 0 0 auto;
+}
+
+.contact__form {
+  margin: 1.5rem;
+}
+.contact__label {
+  text-align: center;
+  display: block;
+  font-size: 11px;
+  line-height: 13px;
+  letter-spacing: 1.65px;
+  font-weight: 700;
+  margin: 1rem;
+}
+.contact__input {
+  height: 37px;
+  width: 80%;
+  margin: auto;
+  display: block;
+}
+.contact__text__area {
+  height: 35vh;
+  width: 80%;
+  resize: none;
+  margin: auto;
+  display: block;
+}
+.contact__title {
+  display: block;
+  text-align: center;
+}
+.contact__button {
+  text-align: center;
+}
+.contact__message__container {
+  width: 50vw;
+  height: 40vh;
+  text-align: center;
+  align-content: center;
+}
