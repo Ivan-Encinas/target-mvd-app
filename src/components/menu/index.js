@@ -1,22 +1,23 @@
 import { useState, useEffect } from 'react';
 import { useLogoutMutation } from 'services/auth/auth';
 import useTranslation from 'hooks/useTranslation';
+import useAuth from 'hooks/useAuth';
 import './styles.scss';
 import icon from 'assets/menu.png';
 
 const Menu = ({ switchTab }) => {
   const t = useTranslation();
-  const create = 'CREATE_TARGET';
-  const edit = 'EDIT_PROFILE';
-  const contact = 'CONTACT';
+  const Create = 'CREATE_TARGET';
+  const Edit = 'EDIT_PROFILE';
+  const Contact = 'CONTACT';
   const handleLogout = () => logout().then(() => localStorage.removeItem('user'));
   const [logout] = useLogoutMutation();
+  const { authenticated, user } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const auth = localStorage.getItem('user');
-    if (auth) {
+    if (authenticated) {
       setIsLoggedIn(true);
     }
   }, []);
@@ -40,12 +41,12 @@ const Menu = ({ switchTab }) => {
         {isLoggedIn ? (
           <>
             <li>
-              <button className="menu__item" onClick={() => changeTab(edit)}>
+              <button className="menu__item" onClick={() => changeTab(Edit)}>
                 {t('menu.profile')}
               </button>
             </li>
             <li>
-              <button className="menu__item" onClick={() => changeTab(create)}>
+              <button className="menu__item" onClick={() => changeTab(Create)}>
                 {t('menu.target')}
               </button>
             </li>
@@ -57,7 +58,7 @@ const Menu = ({ switchTab }) => {
           </>
         ) : (
           <li>
-            <button className="menu__item" onClick={() => changeTab(contact)}>
+            <button className="menu__item" onClick={() => changeTab(Contact)}>
               {t('menu.contact')}
             </button>
           </li>

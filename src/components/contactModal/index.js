@@ -1,25 +1,25 @@
 import { useEffect, useRef } from 'react';
 import './styles.scss';
 
-const ContactModal = props => {
+const ContactModal = ({ setShow, show, children }) => {
   const modalRef = useRef();
 
   useEffect(() => {
     const clickOutsideContent = e => {
       if (e.target === modalRef.current) {
-        props.setShow(false);
+        setShow(false);
       }
     };
     window.addEventListener('click', clickOutsideContent);
     return () => {
       window.removeEventListener('click', clickOutsideContent);
     };
-  }, [props]);
+  }, [{ setShow, show, children }]);
 
   return (
-    <div ref={modalRef} className={`modal ${props.show ? 'active' : ''}`}>
+    <div ref={modalRef} className={`modal ${show ? 'active' : ''}`}>
       <div className="modal__content">
-        <div className="modal__body"> {props.children} </div>
+        <div className="modal__body"> {children} </div>
       </div>
     </div>
   );
@@ -27,10 +27,10 @@ const ContactModal = props => {
 
 export default ContactModal;
 
-export const ModalHeader = props => {
-  return <div className="modal__header"> {props.children} </div>;
+export const ModalHeader = ({ children }) => {
+  return <div className="modal__header"> {children} </div>;
 };
 
-export const ModalFooter = props => {
-  return <div className="modal__footer"> {props.children} </div>;
+export const ModalFooter = ({ children }) => {
+  return <div className="modal__footer"> {children} </div>;
 };
