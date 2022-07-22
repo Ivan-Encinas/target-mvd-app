@@ -8,13 +8,10 @@ import useTranslation from 'hooks/useTranslation';
 import { forgotPasswordSchema } from 'schemas';
 import routesPaths from 'routes/routesPaths';
 import { Link } from 'react-router-dom';
-import applestoreButton from 'assets/appstore-button.png';
-import twitterButton from 'assets/Twitter.png';
-import facebookButton from 'assets/Facebook.png';
-import phoneIcon from 'assets/i6Phone.svg';
 
 import './styles.scss';
 import { useResetPasswordMutation } from 'services/profile/profile';
+import Mobile from 'components/phoneSection';
 
 const ForgotPassword = () => {
   const t = useTranslation();
@@ -64,22 +61,7 @@ const ForgotPassword = () => {
           <h3>{t('forgotPassword.message')}</h3>
         </div>
       )}
-      <article className="column right-column">
-        <div className="phone__section">
-          <img className="icon" src={phoneIcon} alt="Applestore Logo" />
-        </div>
-        <a target="_blank" href="https://www.apple.com/la/app-store/" rel="noreferrer">
-          <img className="apple-store" src={applestoreButton} alt="Applestore Logo" />
-        </a>
-        <div className="social-media">
-          <a target="_blank" href="https://es-la.facebook.com/" rel="noreferrer">
-            <img className="facebook" src={facebookButton} alt="Facebook Logo" />
-          </a>
-          <a target="_blank" href="https://twitter.com/?lang=es" rel="noreferrer">
-            <img className="twitter" src={twitterButton} alt="Twitter Logo" />
-          </a>
-        </div>
-      </article>
+      <Mobile />
     </section>
   );
 };

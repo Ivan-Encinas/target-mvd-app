@@ -109,5 +109,13 @@
       "title": "Thanks for getting in touch!",
       "text": "We`ll get back to you as soon as we can."
     }
+  },
+  "mobile": {
+    "alt": {
+      "phone": "Phone Logo",
+      "appleStore": "Applestore Logo",
+      "facebook": "Facebook Logo",
+      "twitter": "Twitter Logo"
+    }
   }
 }

@@ -4,32 +4,28 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Link, Redirect, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import FacebookLogin from 'react-facebook-login';
-import { loginSchema, contactSchema } from 'schemas';
-import applestoreButton from 'assets/appstore-button.png';
-import twitterButton from 'assets/Twitter.png';
-import facebookButton from 'assets/Facebook.png';
-import phoneIcon from 'assets/i6Phone.svg';
-import ContactModal from 'components/contactModal';
+import { loginSchema } from 'schemas';
+import Contact from 'components/contact';
 import Menu from 'components/menu';
 import { api } from 'services/api';
 import { useLoginMutation } from 'services/auth/auth';
-import { useContactMutation } from 'services/contact/contact';
 import useAuth from 'hooks/useAuth';
 import useTranslation from 'hooks/useTranslation';
 import routesPaths from 'routes/routesPaths';
 import Input from 'components/form/input';
 import Button from 'components/common/button';
+import { CONTACT } from 'constants/constants';
 
 import 'styles/form.scss';
 import './styles.scss';
+import ContactModal from 'components/contactModal';
+import Mobile from 'components/phoneSection';
 
 const Login = () => {
   const t = useTranslation();
   const dispatch = useDispatch();
   const { push } = useHistory();
   const [login, { isLoading, isSuccess, error }] = useLoginMutation();
-  const [contact, { isSuccess: isContactSuccess }] = useContactMutation();
-  const [isContactSent, setIsContactSent] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   const { authenticated, user } = useAuth();
@@ -41,15 +37,11 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: zodResolver(loginSchema) });
-  const {
-    register: registerContact,
-    handleSubmit: handleSubmitContact,
-    formState: { contactErrors },
-  } = useForm({ resolver: zodResolver(contactSchema) });
 
   const onSubmit = data => login(data);
   const resetErrors = useCallback(() => dispatch(api.util.resetApiState()), [dispatch]);
   const handleFocus = () => error && resetErrors();
+
   useEffect(() => {
     if (isSuccess) {
       push(routesPaths.index);
@@ -59,18 +51,10 @@ const Login = () => {
   useEffect(() => resetErrors, [resetErrors]);
 
   const switchTab = dataFromChild => {
-    if (dataFromChild === 'CONTACT') {
+    if (dataFromChild === CONTACT) {
       setShowModal(true);
     }
   };
-  const onSubmitContact = data => {
-    contact(data);
-  };
-  useEffect(() => {
-    if (isContactSuccess) {
-      setIsContactSent(true);
-    }
-  }, [isContactSuccess]);
 
   if (authenticated) {
     return <Redirect to={routesPaths.index} />;
@@ -91,34 +75,7 @@ const Login = () => {
         <button className="close" onClick={() => setShowModal(false)}>
           X
         </button>
-        <div className="circles"> </div>
-        {!isContactSent ? (
-          <form onSubmit={handleSubmitContact(onSubmitContact)}>
-            <h3 className="contact__title">{t('contact.form.title')}</h3>
-            <div className="contact__form">
-              <label htmlFor="contactEmail" className="contact__label">
-                {t('contact.form.label.email')}
-              </label>
-              <Input type="email" name="email" register={registerContact} />
-              <label htmlFor="contactEmail" className="contact__label">
-                {t('contact.form.label.message')}
-              </label>
-              <textarea
-                className="contact__text__area"
-                name="body"
-                {...registerContact('body')}
-              ></textarea>
-              <div className="contact__button">
-                <Button type="submit">{t('contact.form.button')}</Button>
-              </div>
-            </div>
-          </form>
-        ) : (
-          <div className="contact__message__container">
-            <h3>{t('contact.response.title')}</h3>
-            <p>{t('contact.response.text')}</p>
-          </div>
-        )}
+        <Contact />
       </ContactModal>
       <section className="row">
         <article className="form column left-column">
@@ -170,22 +127,7 @@ const Login = () => {
             </div>
           </form>
         </article>
-        <article className="column right-column">
-          <div className="phone__section">
-            <img className="icon" src={phoneIcon} alt="Applestore Logo" />
-          </div>
-          <a target="_blank" href="https://www.apple.com/la/app-store/" rel="noreferrer">
-            <img className="apple-store" src={applestoreButton} alt="Applestore Logo" />
-          </a>
-          <div className="social-media">
-            <a target="_blank" href="https://es-la.facebook.com/" rel="noreferrer">
-              <img className="facebook" src={facebookButton} alt="Facebook Logo" />
-            </a>
-            <a target="_blank" href="https://twitter.com/?lang=es" rel="noreferrer">
-              <img className="twitter" src={twitterButton} alt="Twitter Logo" />
-            </a>
-          </div>
-        </article>
+        <Mobile />
       </section>
     </>
   );
