@@ -15,3 +15,4 @@ export const GENDER_OPTIONS = [
 export const CREATE = 'CREATE_TARGET';
 export const EDIT = 'EDIT_PROFILE';
 export const CONTACT = 'CONTACT';
+export const ABOUT = '/about';
