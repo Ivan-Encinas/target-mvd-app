@@ -12,3 +12,6 @@ export const GENDER_OPTIONS = [
   { id: 'female', label: 'Female' },
   { id: 'male', label: 'Male' },
 ];
+export const CREATE = 'CREATE_TARGET';
+export const EDIT = 'EDIT_PROFILE';
+export const CONTACT = 'CONTACT';

@@ -11,10 +11,7 @@
   background-color: var(--color-white);
   height: 100vh;
 }
-.right-column {
-  background-color: var(--color-light-blue);
-  height: 100vh;
-}
+
 .circles {
   width: 133px;
   height: 78px;
@@ -23,16 +20,6 @@
   background-image: url('../../assets/smilies.png');
   background-repeat: no-repeat;
   border: 0px;
-}
-
-.phone__section {
-  height: 595px;
-  .icon {
-    display: block;
-    margin: auto;
-    width: 477px;
-    height: 640px;
-  }
 }
 
 .forgot {
@@ -48,29 +35,6 @@
   width: 120px;
   background-color: #ffffff00;
   border: none;
-}
-
-.social-media {
-  margin: 1rem auto;
-  display: block;
-  width: 77px;
-
-  .facebook {
-    background-repeat: no-repeat;
-    height: 27px;
-    width: 26px;
-    background-color: #ffffff00;
-    border: none;
-    float: left;
-  }
-  .twitter {
-    background-repeat: no-repeat;
-    height: 27px;
-    width: 26px;
-    background-color: #ffffff00;
-    border: none;
-    float: right;
-  }
 }
 
 .center {

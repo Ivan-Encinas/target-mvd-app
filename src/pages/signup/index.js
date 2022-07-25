@@ -13,13 +13,10 @@ import { api } from 'services/api';
 import { useSignupMutation } from 'services/auth/auth';
 import { GENDER_OPTIONS } from 'constants/constants';
 import { signupSchema } from 'schemas';
-import applestoreButton from 'assets/appstore-button.png';
-import twitterButton from 'assets/Twitter.png';
-import facebookButton from 'assets/Facebook.png';
-import phoneIcon from 'assets/i6Phone.svg';
 
 import 'styles/form.scss';
 import './styles.scss';
+import Mobile from 'components/phoneSection';
 
 const Signup = () => {
   const t = useTranslation();
@@ -152,23 +149,7 @@ const Signup = () => {
           </form>
         </div>
       )}
-
-      <article className="column right-column">
-        <div className="phone__section">
-          <img className="icon" src={phoneIcon} alt="Applestore Logo" />
-        </div>
-        <a target="_blank" href="https://www.apple.com/la/app-store/" rel="noreferrer">
-          <img className="apple-store" src={applestoreButton} alt="Applestore Logo" />
-        </a>
-        <div className="social-media">
-          <a target="_blank" href="https://es-la.facebook.com/" rel="noreferrer">
-            <img className="facebook" src={facebookButton} alt="Facebook Logo" />
-          </a>
-          <a target="_blank" href="https://twitter.com/?lang=es" rel="noreferrer">
-            <img className="twitter" src={twitterButton} alt="Twitter Logo" />
-          </a>
-        </div>
-      </article>
+      <Mobile />
     </section>
   );
 };

@@ -11,10 +11,7 @@
   background-color: var(--color-white);
   height: 100vh;
 }
-.right-column {
-  background-color: var(--color-light-blue);
-  height: 100vh;
-}
+
 .circles {
   width: 133px;
   height: 78px;
@@ -25,13 +22,6 @@
   border: 0px;
 }
 
-.i6 {
-  display: block;
-  margin: 0 3.4rem auto;
-  width: 500px;
-  height: 625px;
-  border: 0px;
-}
 .title {
   text-align: center;
   font-size: 20px;
@@ -48,58 +38,12 @@
   text-align: center;
 }
 
-#apple-store {
-  background-image: url('../../assets/appstore-button.png');
-  background-repeat: no-repeat;
-  margin: 0 16.87rem auto;
-  display: block;
-  height: 38px;
-  width: 120px;
-  background-color: #ffffff00;
-  border: none;
-}
-
-#facebook {
-  background-image: url('../../assets/Facebook.png');
-  background-repeat: no-repeat;
-  height: 27px;
-  width: 26px;
-  background-color: #ffffff00;
-  border: none;
-  float: left;
-}
-#twitter {
-  background-image: url('../../assets/Twitter.png');
-  background-repeat: no-repeat;
-  height: 27px;
-  width: 26px;
-  background-color: #ffffff00;
-  border: none;
-  float: right;
-}
-
-.social-media {
-  margin: 1rem 18.1rem auto;
-  display: block;
-  width: 77px;
-}
-
 .forgot {
   margin-top: 0.5rem;
   font-weight: 700;
   font-size: 14px;
   line-height: 14px;
   text-align: center;
-  color: var(--color-black);
-  text-decoration: none;
-}
-
-.facebook {
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 14px;
-  text-align: center;
-  letter-spacing: 2.4px;
   color: var(--color-black);
   text-decoration: none;
 }
@@ -125,4 +69,13 @@ hr {
   font-weight: 900 !important;
   font-size: 15px !important;
   padding: 3rem 0 0 !important;
+}
+
+.close {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  margin: 0 0 0 auto;
 }

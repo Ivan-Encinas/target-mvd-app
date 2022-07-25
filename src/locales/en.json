@@ -87,12 +87,35 @@
     "target": "Create target",
     "profile": "Edit Profile",
     "logout": "Log Out",
-    "alt": "Menu Button"
+    "alt": "Menu Button",
+    "contact": "CONTACT"
   },
   "forgotPassword": {
     "title": "Forgot your password?",
     "email": "Email",
     "button": "Recover",
     "message": "You will receive an email with the instructions about how to change your password."
+  },
+  "contact": {
+    "form": {
+      "title": "Don`t be shy, drop us a line!",
+      "label": {
+        "email": "EMAIL*",
+        "message": "MESSAGE*"
+      },
+      "button": "Send"
+    },
+    "response": {
+      "title": "Thanks for getting in touch!",
+      "text": "We`ll get back to you as soon as we can."
+    }
+  },
+  "mobile": {
+    "alt": {
+      "phone": "Phone Logo",
+      "appleStore": "Applestore Logo",
+      "facebook": "Facebook Logo",
+      "twitter": "Twitter Logo"
+    }
   }
 }

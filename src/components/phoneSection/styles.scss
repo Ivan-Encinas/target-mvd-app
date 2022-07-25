@@ -1,0 +1,56 @@
+.column {
+  float: left;
+  width: 50%;
+}
+
+.row:after {
+  display: table;
+  clear: both;
+}
+
+.right-column {
+  background-color: var(--color-light-blue);
+  height: 100vh;
+}
+
+.phone__section {
+  height: 595px;
+  .icon {
+    display: block;
+    margin: auto;
+    width: 477px;
+    height: 640px;
+  }
+}
+
+.apple-store {
+  margin: auto;
+  display: block;
+  height: 38px;
+  width: 120px;
+  background-color: #ffffff00;
+  border: none;
+}
+
+.social-media {
+  margin: 1rem auto;
+  display: block;
+  width: 77px;
+
+  .facebook {
+    background-repeat: no-repeat;
+    height: 27px;
+    width: 26px;
+    background-color: #ffffff00;
+    border: none;
+    float: left;
+  }
+  .twitter {
+    background-repeat: no-repeat;
+    height: 27px;
+    width: 26px;
+    background-color: #ffffff00;
+    border: none;
+    float: right;
+  }
+}
