@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import { useLogoutMutation } from 'services/auth/auth';
 import useTranslation from 'hooks/useTranslation';
 import useAuth from 'hooks/useAuth';
-import { CREATE, EDIT, CONTACT } from 'constants/constants';
+import { CREATE, EDIT, CONTACT, ABOUT } from 'constants/constants';
 import './styles.scss';
 import icon from 'assets/menu.png';
+import { useHistory } from 'react-router-dom';
 
 const Menu = ({ switchTab }) => {
   const t = useTranslation();
+  const history = useHistory();
   const handleLogout = () => logout().then(() => localStorage.removeItem('user'));
   const [logout] = useLogoutMutation();
   const { authenticated, user } = useAuth();
@@ -55,11 +57,18 @@ const Menu = ({ switchTab }) => {
             </li>
           </>
         ) : (
-          <li>
-            <button className="menu__item" onClick={() => changeTab(CONTACT)}>
-              {t('menu.contact')}
-            </button>
-          </li>
+          <>
+            <li>
+              <button className="menu__item" onClick={() => history.push(ABOUT)}>
+                {t('menu.about')}
+              </button>
+            </li>
+            <li>
+              <button className="menu__item" onClick={() => changeTab(CONTACT)}>
+                {t('menu.contact')}
+              </button>
+            </li>
+          </>
         )}
       </ul>
     </div>

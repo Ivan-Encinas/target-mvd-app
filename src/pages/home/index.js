@@ -1,21 +1,19 @@
-import useTranslation from 'hooks/useTranslation';
 import MapView from 'components/map';
 import { useGetTargetsQuery } from 'services/target/target';
 import NewTarget from 'components/createTarget';
 import EditProfile from 'components/editProfile';
 import { useEffect, useState } from 'react';
 import SideBar from 'components/sideBar';
+import { CREATE, EDIT } from 'constants/constants';
 
 import 'components/sideBar/styles.scss';
 import './styles.scss';
 
 const Home = () => {
-  const create = 'CREATE_TARGET';
-  const edit = 'EDIT_PROFILE';
   const { data: targets } = useGetTargetsQuery();
   const [targetsList, setTargetsList] = useState([]);
   const [latLng, setLatLng] = useState({});
-  const [tabSelected, setTabSelected] = useState(create);
+  const [tabSelected, setTabSelected] = useState(CREATE);
   const [currentPosition, setCurrentPosition] = useState({
     ready: false,
     where: [],
@@ -72,14 +70,14 @@ const Home = () => {
     <div className="home">
       <MapView currentPosition={currentPosition} sendLatLng={sendLatLng} targets={targetsList} />
       <SideBar
-        title={tabSelected === create ? 'sideBar.create.title' : 'profile.edit.subtitle'}
+        title={tabSelected === CREATE ? 'sideBar.create.title' : 'profile.edit.subtitle'}
         switchTab={switchTag}
       >
         {(() => {
           switch (tabSelected) {
-            case create:
+            case CREATE:
               return <NewTarget />;
-            case edit:
+            case EDIT:
               return <EditProfile />;
             default:
               return null;

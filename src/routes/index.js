@@ -3,6 +3,7 @@ import Home from '../pages/home';
 import Signup from '../pages/signup';
 import Login from '../pages/login';
 import ForgotPassword from '../pages/forgotPassword';
+import About from 'pages/about';
 
 const routes = [
   {
@@ -22,6 +23,10 @@ const routes = [
   {
     path: routesPaths.forgotPassword,
     component: <ForgotPassword />,
+  },
+  {
+    path: routesPaths.about,
+    component: <About />,
   },
 ];
 
