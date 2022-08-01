@@ -15,7 +15,7 @@ const About = () => {
     <>
       <section className="row">
         <article className="form column left__column">
-          <div className="smiles"></div>
+          <div className="smile"></div>
           <h5 className="subTitle">{t('about.title')}</h5>
           <p className="about__text">{t('about.text')}</p>
           <div className="button-container">

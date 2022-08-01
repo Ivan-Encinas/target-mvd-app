@@ -19,7 +19,7 @@ const SideBar = ({ title, switchTab, children }) => {
       </div>
 
       {children}
-      <img className="smiles" src={logo} alt="App smiley logo"></img>
+      <img className="smile" src={logo} alt="App smiley logo"></img>
     </div>
   );
 };

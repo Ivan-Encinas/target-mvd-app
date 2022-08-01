@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLogoutMutation } from 'services/auth/auth';
 import useTranslation from 'hooks/useTranslation';
 import useAuth from 'hooks/useAuth';
-import { CREATE, EDIT, CONTACT, ABOUT } from 'constants/constants';
+import { CREATE, EDIT, CONTACT, ABOUT, HOME } from 'constants/constants';
 import './styles.scss';
 import icon from 'assets/menu.png';
 import { useHistory } from 'react-router-dom';
@@ -40,6 +40,11 @@ const Menu = ({ switchTab }) => {
       <ul className={`menu__box ${isOpen ? 'open' : 'close'}`}>
         {isLoggedIn ? (
           <>
+            <li>
+              <button className="menu__item" onClick={() => changeTab(HOME)}>
+                {t('menu.home')}
+              </button>
+            </li>
             <li>
               <button className="menu__item" onClick={() => changeTab(EDIT)}>
                 {t('menu.profile')}

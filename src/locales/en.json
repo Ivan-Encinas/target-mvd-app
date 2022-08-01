@@ -14,6 +14,10 @@
       "savePassword": "Save changes",
       "placeholder": "Select a topic"
     },
+    "title": "TARGET",
+    "chat": {
+      "title": "Chat"
+    },
     "location": "You are here!",
     "altCreate": "Aim Icon",
     "altEdit": "Profile Icon"
@@ -84,12 +88,14 @@
     }
   },
   "menu": {
+    "home": "Home",
     "target": "Create target",
     "profile": "Edit Profile",
     "logout": "Log Out",
     "alt": "Menu Button",
     "contact": "CONTACT",
-    "about": "ABOUT"
+    "about": "ABOUT",
+    "chats": "HOME"
   },
   "forgotPassword": {
     "title": "Forgot your password?",
