@@ -5,6 +5,7 @@
   z-index: 1;
   left: 0;
   top: 0;
+  overflow: scroll;
 }
 .smile {
   width: 133px;
@@ -56,7 +57,7 @@
 }
 
 .saveButton {
-  margin-top: 8rem;
+  margin-top: 5rem;
 }
 
 .button:hover {

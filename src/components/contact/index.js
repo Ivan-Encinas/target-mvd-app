@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { Redirect } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+
 import { contactSchema } from 'schemas';
 import { api } from 'services/api';
 import { useContactMutation } from 'services/contact/contact';

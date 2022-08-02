@@ -1,9 +1,10 @@
+import { useEffect, useState } from 'react';
+
 import MapView from 'components/map';
 import { useGetTargetsQuery } from 'services/target/target';
 import NewTarget from 'components/createTarget';
 import EditProfile from 'components/editProfile';
 import Chats from 'components/chats';
-import { useEffect, useState } from 'react';
 import SideBar from 'components/sideBar';
 import { CREATE, EDIT, HOME } from 'constants/constants';
 
@@ -70,11 +71,11 @@ const Home = () => {
   const title = tabSelected => {
     if (tabSelected === CREATE) {
       return 'sideBar.create.title';
-    } else if (tabSelected === EDIT) {
-      return 'profile.edit.subtitle';
-    } else {
-      return 'menu.chats';
     }
+    if (tabSelected === EDIT) {
+      return 'profile.edit.subtitle';
+    }
+    return 'menu.chats';
   };
 
   return (

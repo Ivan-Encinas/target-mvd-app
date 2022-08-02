@@ -1,16 +1,20 @@
-import useTranslation from 'hooks/useTranslation';
 import { useEffect, useState } from 'react';
-import { useGetConversationQuery } from 'services/conversation/conversation';
-import profile from 'assets/profile.svg';
+
 import { v4 as uuid } from 'uuid';
+
+import useTranslation from 'hooks/useTranslation';
+import { useGetConversationQuery } from 'services/conversation/conversation';
+
+import profile from 'assets/profile.svg';
 
 import './styles.scss';
 
 const Chats = () => {
-  const [tabSelected, setTabSelected] = useState('HOME');
-  const user = JSON.parse(localStorage.getItem('user'));
-  const { data: matchConversations } = useGetConversationQuery();
   const [matchList, setMatchList] = useState([]);
+  const [tabSelected, setTabSelected] = useState('HOME');
+
+  const { data: matchConversations } = useGetConversationQuery();
+  const user = JSON.parse(localStorage.getItem('user'));
   const t = useTranslation();
   const getMatches = () => {
     const matches = matchConversations?.matches || [];
@@ -27,9 +31,9 @@ const Chats = () => {
 
   return (
     <>
-      <h2>{t('home.title')}</h2>
+      <h1>{t('home.title')}</h1>
       <img alt="profile avatar" src={profile}></img>
-      <h5>{user.username}</h5>
+      <h2 className="username">{user.username}</h2>
       <hr className="margin-auto"></hr>
       <h3>{t('home.chat.title')}</h3>
       {matchList.map(match => {

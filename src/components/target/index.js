@@ -1,7 +1,10 @@
-import { useEffect, useState } from 'react';
-import { Marker, useMapEvents, Popup } from 'react-leaflet';
-import myIcon from '../map/icon';
+import { useState } from 'react';
+
 import { v4 as uuid } from 'uuid';
+
+import { Marker, useMapEvents, Popup } from 'react-leaflet';
+
+import myIcon from '../map/icon';
 
 const Target = ({ sendLatLng, targets }) => {
   const [latLng, setLatLng] = useState(null);
@@ -14,7 +17,7 @@ const Target = ({ sendLatLng, targets }) => {
 
   return (
     <>
-      {targets.map((target, index) => (
+      {targets.map(target => (
         <Marker position={target} icon={myIcon} key={uuid()}>
           <Popup>{target[2]}</Popup>
         </Marker>

@@ -1,12 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { Link } from 'react-router-dom';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import emailjs from 'emailjs-com';
+
 import Input from 'components/form/input';
 import Select from 'components/form/select/select';
 import Button from 'components/common/button';
-import emailjs from 'emailjs-com';
 import routesPaths from 'routes/routesPaths';
 import useTranslation from 'hooks/useTranslation';
 import { api } from 'services/api';
@@ -14,13 +16,13 @@ import { useSignupMutation } from 'services/auth/auth';
 import { GENDER_OPTIONS } from 'constants/constants';
 import { signupSchema } from 'schemas';
 import { CONTACT } from 'constants/constants';
-
-import 'styles/form.scss';
-import './styles.scss';
 import Mobile from 'components/phoneSection';
 import Menu from 'components/menu';
 import ContactModal from 'components/contactModal';
 import Contact from 'components/contact';
+
+import 'styles/form.scss';
+import './styles.scss';
 
 const Signup = () => {
   const t = useTranslation();

@@ -1,7 +1,9 @@
-import useTranslation from 'hooks/useTranslation';
 import React from 'react';
-import logo from '../../assets/smilies.png';
+
+import useTranslation from 'hooks/useTranslation';
 import Menu from 'components/menu';
+
+import logo from '../../assets/smilies.png';
 
 import './styles.scss';
 

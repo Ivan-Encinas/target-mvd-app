@@ -1,6 +1,5 @@
-import { bool, string, node } from 'prop-types';
-// eslint-disable-next-line no-unused-vars
 import { Route, Redirect, useLocation } from 'react-router-dom';
+import { bool, string, node } from 'prop-types';
 
 import routesPaths from 'routes/routesPaths';
 
