@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { Link, Redirect, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import FacebookLogin from 'react-facebook-login';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+
 import { loginSchema } from 'schemas';
 import Contact from 'components/contact';
 import Menu from 'components/menu';
@@ -15,11 +17,11 @@ import routesPaths from 'routes/routesPaths';
 import Input from 'components/form/input';
 import Button from 'components/common/button';
 import { CONTACT } from 'constants/constants';
+import ContactModal from 'components/contactModal';
+import Mobile from 'components/phoneSection';
 
 import 'styles/form.scss';
 import './styles.scss';
-import ContactModal from 'components/contactModal';
-import Mobile from 'components/phoneSection';
 
 const Login = () => {
   const t = useTranslation();
@@ -83,7 +85,7 @@ const Login = () => {
           <form onSubmit={handleSubmit(onSubmit)} noValidate>
             <div className="circles"> </div>
             <h1 className="title">{t('login.title')}</h1>
-            <h5 className="subTitle">{t('login.subTitle')}</h5>
+            <h2 className="subTitle">{t('login.subTitle')}</h2>
             <p className="explanation">{t('login.explanation')}</p>
             <label htmlFor="email">{t('login.labels.email')}</label>
             <Input

@@ -1,5 +1,5 @@
-/* eslint-disable no-unused-vars */
 import { Route } from 'react-router-dom';
+
 import { node } from 'prop-types';
 import PrivateRoute from './PrivateRoute';
 

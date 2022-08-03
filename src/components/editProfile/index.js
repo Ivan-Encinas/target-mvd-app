@@ -1,11 +1,14 @@
-import useTranslation from 'hooks/useTranslation';
-import profileIcon from 'assets/profile.svg';
 import { useForm } from 'react-hook-form';
+
 import { zodResolver } from '@hookform/resolvers/zod';
+
+import useTranslation from 'hooks/useTranslation';
 import { profileSchema } from 'schemas';
 import { useProfilePasswordMutation } from 'services/profile/profile';
 import Input from 'components/form/input';
 import Button from 'components/common/button';
+
+import profileIcon from 'assets/profile.svg';
 
 const EditProfile = () => {
   const t = useTranslation();

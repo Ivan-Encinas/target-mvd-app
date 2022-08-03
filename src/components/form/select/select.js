@@ -1,6 +1,7 @@
+import { v4 as uuid } from 'uuid';
+
 import { string, func } from 'prop-types';
 import cn from 'classnames';
-import { v4 as uuid } from 'uuid';
 
 import './styles.scss';
 

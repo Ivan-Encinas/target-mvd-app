@@ -1,17 +1,18 @@
 import React from 'react';
-import Input from 'components/form/input';
-import Button from 'components/common/button';
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+
+import Input from 'components/form/input';
+import Button from 'components/common/button';
 import useTranslation from 'hooks/useTranslation';
 import { forgotPasswordSchema } from 'schemas';
 import routesPaths from 'routes/routesPaths';
-import { Link } from 'react-router-dom';
-
-import './styles.scss';
 import { useResetPasswordMutation } from 'services/profile/profile';
 import Mobile from 'components/phoneSection';
+
+import './styles.scss';
 
 const ForgotPassword = () => {
   const t = useTranslation();

@@ -1,9 +1,10 @@
-import Button from 'components/common/button';
+import { useHistory } from 'react-router-dom';
+
 import useTranslation from 'hooks/useTranslation';
 import routesPaths from 'routes/routesPaths';
-import './styles.scss';
 import Mobile from 'components/phoneSection';
-import { useHistory } from 'react-router-dom';
+
+import './styles.scss';
 
 import './styles.scss';
 
@@ -15,8 +16,8 @@ const About = () => {
     <>
       <section className="row">
         <article className="form column left__column">
-          <div className="smiles"></div>
-          <h5 className="subTitle">{t('about.title')}</h5>
+          <div className="smile"></div>
+          <h1 className="subTitle">{t('about.title')}</h1>
           <p className="about__text">{t('about.text')}</p>
           <div className="button-container">
             <button className="button" onClick={() => history.push(routesPaths.login)}>
