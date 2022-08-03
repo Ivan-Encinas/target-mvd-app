@@ -17,3 +17,6 @@ export const CREATE = 'CREATE_TARGET';
 export const EDIT = 'EDIT_PROFILE';
 export const CONTACT = 'CONTACT';
 export const ABOUT = '/about';
+export const CHAT = 'CHAT';
+export const OPEN = 'open';
+export const CLOSE = 'close';
