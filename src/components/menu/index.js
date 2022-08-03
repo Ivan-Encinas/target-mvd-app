@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { useLogoutMutation } from 'services/auth/auth';
 import useTranslation from 'hooks/useTranslation';
 import useAuth from 'hooks/useAuth';
-import { CREATE, EDIT, CONTACT, ABOUT, HOME } from 'constants/constants';
+import { CREATE, EDIT, CONTACT, ABOUT, HOME, OPEN, CLOSE } from 'constants/constants';
 
 import icon from 'assets/menu.png';
 import './styles.scss';
@@ -41,7 +41,7 @@ const Menu = ({ switchTab }) => {
           <button className="menu__btn" htmlFor="menuToggle" onClick={handleClick}>
             <img src={icon} alt={t('menu.alt')} />
           </button>
-          <ul className={`menu__box ${isOpen ? 'open' : 'close'}`}>
+          <ul className={`menu__box ${isOpen ? OPEN : CLOSE}`}>
             <li>
               <button className="menu__item" onClick={() => changeTab(HOME)}>
                 {t('menu.home')}
@@ -69,7 +69,7 @@ const Menu = ({ switchTab }) => {
           <button className="menu__btn__logout" htmlFor="menuToggle" onClick={handleClick}>
             <img src={icon} alt={t('menu.alt')} />
           </button>
-          <ul className={`menu__box ${isOpen ? 'open' : 'close'}`}>
+          <ul className={`menu__box ${isOpen ? OPEN : CLOSE}`}>
             <li>
               <button className="menu__item" onClick={() => history.push(ABOUT)}>
                 {t('menu.about')}
