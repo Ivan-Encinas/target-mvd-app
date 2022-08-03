@@ -1,0 +1,62 @@
+.line {
+  width: 95%;
+}
+
+.chat_box {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  margin: 0.3rem;
+}
+
+.margin-auto {
+  margin: auto;
+}
+
+.chat_button {
+  background-color: transparent;
+  border: none;
+  margin: 0.5rem;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.have_notifications_container {
+  display: inline-flex;
+  float: right;
+  margin-right: 1rem;
+  background-color: var(--color-red);
+  border-radius: 5rem;
+}
+
+.notifications_empty_container {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-flex;
+  float: right;
+  margin-right: 0.5rem;
+  background-color: transparent;
+}
+
+.match_icon {
+  width: 25px;
+  height: 15px;
+  margin: 0.5rem;
+}
+
+.username {
+  font-size: 15px;
+}
+
+.have_notifications {
+  padding: 0.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.notifications_empty {
+  font-weight: 700;
+  color: var(--color-black);
+  margin: 0.5rem;
+  font-size: 12px;
+}

@@ -1,15 +1,18 @@
-import useTranslation from 'hooks/useTranslation';
-import sideBarIcon from 'assets/aim-mark.png';
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+
 import { zodResolver } from '@hookform/resolvers/zod';
-import { homeSchema } from 'schemas';
 import Swal from 'sweetalert2';
+
+import useTranslation from 'hooks/useTranslation';
+import { homeSchema } from 'schemas';
 import Input from 'components/form/input';
 import Select from 'components/form/select/select';
 import Button from 'components/common/button';
 import { useTopicsQuery } from 'services/topics/topics';
 import { useCreateTargetMutation, useGetTargetsQuery } from 'services/target/target';
+
+import sideBarIcon from 'assets/aim-mark.png';
 
 const NewTarget = () => {
   const t = useTranslation();

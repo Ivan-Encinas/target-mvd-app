@@ -1,7 +1,9 @@
-import useTranslation from 'hooks/useTranslation';
 import React from 'react';
-import logo from '../../assets/smilies.png';
+
+import useTranslation from 'hooks/useTranslation';
 import Menu from 'components/menu';
+
+import logo from '../../assets/smilies.png';
 
 import './styles.scss';
 
@@ -19,7 +21,7 @@ const SideBar = ({ title, switchTab, children }) => {
       </div>
 
       {children}
-      <img className="smiles" src={logo} alt="App smiley logo"></img>
+      <img className="smile" src={logo} alt="App smiley logo"></img>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+
 import './styles.scss';
 
 const ContactModal = ({ setShow, show, children }) => {

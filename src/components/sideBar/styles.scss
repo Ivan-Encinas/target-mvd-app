@@ -5,10 +5,14 @@
   z-index: 1;
   left: 0;
   top: 0;
+  overflow: scroll;
 }
-.smiles {
-  width: 48px;
-  height: 28px;
+.smile {
+  width: 133px;
+  height: 78px;
+  margin: 2rem auto;
+  display: block;
+  border: 0px;
 }
 
 .sidebar__header {
@@ -53,7 +57,7 @@
 }
 
 .saveButton {
-  margin-top: 8rem;
+  margin-top: 5rem;
 }
 
 .button:hover {

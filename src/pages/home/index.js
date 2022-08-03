@@ -1,10 +1,12 @@
+import { useEffect, useState } from 'react';
+
 import MapView from 'components/map';
 import { useGetTargetsQuery } from 'services/target/target';
 import NewTarget from 'components/createTarget';
 import EditProfile from 'components/editProfile';
-import { useEffect, useState } from 'react';
+import Chats from 'components/chats';
 import SideBar from 'components/sideBar';
-import { CREATE, EDIT } from 'constants/constants';
+import { CREATE, EDIT, HOME } from 'constants/constants';
 
 import 'components/sideBar/styles.scss';
 import './styles.scss';
@@ -13,7 +15,7 @@ const Home = () => {
   const { data: targets } = useGetTargetsQuery();
   const [targetsList, setTargetsList] = useState([]);
   const [latLng, setLatLng] = useState({});
-  const [tabSelected, setTabSelected] = useState(CREATE);
+  const [tabSelected, setTabSelected] = useState(HOME);
   const [currentPosition, setCurrentPosition] = useState({
     ready: false,
     where: [],
@@ -66,15 +68,24 @@ const Home = () => {
     setTabSelected(dataFromChild);
   };
 
+  const title = tabSelected => {
+    if (tabSelected === CREATE) {
+      return 'sideBar.create.title';
+    }
+    if (tabSelected === EDIT) {
+      return 'profile.edit.subtitle';
+    }
+    return 'menu.chats';
+  };
+
   return (
     <div className="home">
       <MapView currentPosition={currentPosition} sendLatLng={sendLatLng} targets={targetsList} />
-      <SideBar
-        title={tabSelected === CREATE ? 'sideBar.create.title' : 'profile.edit.subtitle'}
-        switchTab={switchTag}
-      >
+      <SideBar title={title(tabSelected)} switchTab={switchTag}>
         {(() => {
           switch (tabSelected) {
+            case HOME:
+              return <Chats />;
             case CREATE:
               return <NewTarget />;
             case EDIT:
