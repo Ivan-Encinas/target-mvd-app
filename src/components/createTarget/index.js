@@ -14,14 +14,16 @@ import { useCreateTargetMutation, useGetTargetsQuery } from 'services/target/tar
 
 import sideBarIcon from 'assets/aim-mark.png';
 
-const NewTarget = () => {
+const NewTarget = ({ ...sendLatLng }) => {
   const t = useTranslation();
+  let position = [sendLatLng.sendLatLng.lat, sendLatLng.sendLatLng.lng];
   const [createTarget] = useCreateTargetMutation();
   const { data: topics } = useTopicsQuery();
   const { data: targets } = useGetTargetsQuery();
   const [topicsList, setTopicsList] = useState([]);
   const [targetsList, setTargetsList] = useState([]);
-  const [latLng, setLatLng] = useState({});
+  let lat = position[0];
+  let lng = position[1];
 
   const parseTopics = () => {
     let topicsParsedList = [];
@@ -58,11 +60,12 @@ const NewTarget = () => {
 
   const onSubmit = data => {
     if (targetsList.length <= 9) {
-      createTarget({ ...data, ...latLng });
+      createTarget({ ...data, lat, lng });
     } else {
       Swal.fire({ title: t('target.limit.alert'), icon: 'info', confirmButtonColor: '#3085d6' });
     }
   };
+
   return (
     <>
       <img className="sidebar__icon" src={sideBarIcon} alt={t('home.altCreate')}></img>
