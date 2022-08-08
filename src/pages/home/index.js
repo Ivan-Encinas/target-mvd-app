@@ -51,7 +51,11 @@ const Home = () => {
   const parseTargets = () => {
     let targetsParsedList = [];
     targets?.targets.map(target => {
-      targetsParsedList.push([target.target.lat, target.target.lng, target.target.id]);
+      targetsParsedList.push({
+        lat: target.target.lat,
+        lng: target.target.lng,
+        id: target.target.id,
+      });
     });
     setTargetsList(targetsParsedList);
   };

@@ -8,6 +8,7 @@ import { useDeleteTargetMutation } from 'services/target/target';
 import myIcon from '../map/icon';
 import endpoints from 'constants/endpoints';
 import useTranslation from 'hooks/useTranslation';
+import { COLORS } from 'styles/constants';
 
 import './styles.scss';
 
@@ -29,12 +30,12 @@ const Target = ({ sendLatLng, targets }) => {
       text: t('target.delete.alert'),
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: COLORS.confirmButtonColor,
+      cancelButtonColor: COLORS.cancelButtonColor,
       confirmButtonText: t('target.delete.confirm'),
     }).then(result => {
       if (result.isConfirmed) {
-        let urlDelete = deleteEndpoint + targetId;
+        let urlDelete = `${deleteEndpoint}${targetId}`;
         deleteTargetQuery(urlDelete);
       }
     });
@@ -44,13 +45,13 @@ const Target = ({ sendLatLng, targets }) => {
     <>
       {targets.map(target => (
         <Marker position={target} icon={myIcon} key={uuid()}>
-          <Popup className="popup__containter">
+          <Popup className="popup__container">
             <button
               type="button"
               className="delete__button"
-              onClick={() => deleteTarget(target[2])}
+              onClick={() => deleteTarget(target.id)}
             >
-              Delete
+              {t('target.delete.button')}
             </button>
           </Popup>
         </Marker>
