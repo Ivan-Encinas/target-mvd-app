@@ -51,7 +51,11 @@ const Home = () => {
   const parseTargets = () => {
     let targetsParsedList = [];
     targets?.targets.map(target => {
-      targetsParsedList.push([target.target.lat, target.target.lng, target.target.title]);
+      targetsParsedList.push({
+        lat: target.target.lat,
+        lng: target.target.lng,
+        id: target.target.id,
+      });
     });
     setTargetsList(targetsParsedList);
   };
@@ -87,7 +91,7 @@ const Home = () => {
             case HOME:
               return <Chats />;
             case CREATE:
-              return <NewTarget />;
+              return <NewTarget sendLatLng={latLng} />;
             case EDIT:
               return <EditProfile />;
             default:

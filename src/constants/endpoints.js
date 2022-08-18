@@ -4,6 +4,7 @@ const endpoints = {
   SIGN_OUT: '/users/sign_out',
   GET_TOPICS: '/topics',
   TARGET: '/targets',
+  DELETE_TARGET: '/targets/',
   PROFILE_PASSWORD: '/users/password',
   CONTACT: '/questions',
   CONVERSATION: '/match_conversations',

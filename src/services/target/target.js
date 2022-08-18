@@ -15,10 +15,16 @@ const targetApi = api.injectEndpoints({
         url: endpoints.TARGET,
       }),
     }),
+    deleteTarget: builder.mutation({
+      query: urlDelete => ({
+        url: urlDelete,
+        method: 'DELETE',
+      }),
+    }),
   }),
   overrideExisting: true,
 });
 
-export const { useCreateTargetMutation, useGetTargetsQuery } = targetApi;
+export const { useCreateTargetMutation, useGetTargetsQuery, useDeleteTargetMutation } = targetApi;
 
 export const selectTarget = state => state.target;

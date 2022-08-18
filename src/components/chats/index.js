@@ -4,6 +4,7 @@ import { v4 as uuid } from 'uuid';
 
 import useTranslation from 'hooks/useTranslation';
 import { useGetConversationQuery } from 'services/conversation/conversation';
+import { CHAT, HOME } from 'constants/constants';
 
 import profile from 'assets/profile.svg';
 
@@ -11,7 +12,7 @@ import './styles.scss';
 
 const Chats = () => {
   const [matchList, setMatchList] = useState([]);
-  const [tabSelected, setTabSelected] = useState('HOME');
+  const [tabSelected, setTabSelected] = useState(HOME);
 
   const { data: matchConversations } = useGetConversationQuery();
   const user = JSON.parse(localStorage.getItem('user'));
@@ -26,7 +27,7 @@ const Chats = () => {
   }, [matchConversations]);
 
   const handleClickOpenChat = () => {
-    setTabSelected('CHAT');
+    setTabSelected(CHAT);
   };
 
   return (

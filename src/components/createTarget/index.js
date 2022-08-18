@@ -11,17 +11,19 @@ import Select from 'components/form/select/select';
 import Button from 'components/common/button';
 import { useTopicsQuery } from 'services/topics/topics';
 import { useCreateTargetMutation, useGetTargetsQuery } from 'services/target/target';
+import { COLORS } from 'styles/constants';
 
 import sideBarIcon from 'assets/aim-mark.png';
 
-const NewTarget = () => {
+const NewTarget = ({ ...sendLatLng }) => {
   const t = useTranslation();
   const [createTarget] = useCreateTargetMutation();
   const { data: topics } = useTopicsQuery();
   const { data: targets } = useGetTargetsQuery();
   const [topicsList, setTopicsList] = useState([]);
   const [targetsList, setTargetsList] = useState([]);
-  const [latLng, setLatLng] = useState({});
+  let lat = sendLatLng.sendLatLng.lat;
+  let lng = sendLatLng.sendLatLng.lng;
 
   const parseTopics = () => {
     let topicsParsedList = [];
@@ -58,11 +60,16 @@ const NewTarget = () => {
 
   const onSubmit = data => {
     if (targetsList.length <= 9) {
-      createTarget({ ...data, ...latLng });
+      createTarget({ ...data, lat, lng });
     } else {
-      Swal.fire({ title: t('target.limit.alert'), icon: 'info', confirmButtonColor: '#3085d6' });
+      Swal.fire({
+        title: t('target.limit.alert'),
+        icon: 'info',
+        confirmButtonColor: COLORS.confirmButtonColor,
+      });
     }
   };
+
   return (
     <>
       <img className="sidebar__icon" src={sideBarIcon} alt={t('home.altCreate')}></img>

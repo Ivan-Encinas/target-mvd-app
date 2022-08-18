@@ -6,8 +6,6 @@ import Mobile from 'components/phoneSection';
 
 import './styles.scss';
 
-import './styles.scss';
-
 const About = () => {
   const t = useTranslation();
   const history = useHistory();
